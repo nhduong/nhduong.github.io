@@ -1,0 +1,2 @@
+cd /www/home/n/n_uong
+rm -rf * ; git clone https://github.com/nhduong/nhduong.github.io.git ; mv nhduong.github.io/* ./ ; chmod -R 0755 *
