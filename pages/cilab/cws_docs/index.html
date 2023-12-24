@@ -376,44 +376,19 @@ last update 2023-12-20</p>
 <li><a href="#3-connecting-to-a-server">Connecting to a server</a></li>
 <li><a href="#4-setting-up-an-environment">Setting up an environment</a> (needs to be done only <strong>ONE</strong> time)</li>
 <li><a href="#5-developing-on-a-server">Developing on a server</a></li>
-<li><a href="#6-other-useful-tips">Other useful tips</a>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /></li>
+<li><a href="#6-other-useful-tips">Other useful tips</a></li>
 </ul>
+<br />
+<br />
+<br />
 <blockquote>
-<p><strong><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></strong></p>
+<p><strong><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></strong></p>
 </blockquote>
 <h2 id="1-reservation"><a href="#1-reservation">1. Reservation</a></h2>
-<p>Head to <a href="???">CILAB_GPU_table</a> to reserve the GPU(s) you need.</p>
+<p>Head to the <ins>CILAB_Shared_GPUs_Sheet</ins> to reserve the GPU(s) you need.</p>
+<blockquote>
+<p><strong><em>For now, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></strong></p>
+</blockquote>
 <h2 id="2-ssh-configuration"><a href="#2-ssh-configuration">2. SSH configuration</a></h2>
 <blockquote>
 <p><strong><em>SSH configuration needs to be done only <strong>ONE</strong> time. Go to <a href="#3-connecting-to-a-server">Connecting to a server</a> if you have already done this before.</em></strong></p>
@@ -443,7 +418,7 @@ last update 2023-12-20</p>
 <pre><code>  Host any_name_you_like
       HostName workstation_ip_address
       User your_username
-      Port ssh_port
+      Port 1004
 </code></pre>
 </li>
 <li>
