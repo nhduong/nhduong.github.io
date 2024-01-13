@@ -543,6 +543,11 @@ print(torch.cuda.is_available())
 <blockquote>
 <p><strong><em>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</em></strong></p>
 </blockquote>
+<blockquote>
+<p><strong><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></strong></p>
+</blockquote>
+<pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &amp;
+</div></code></pre>
 
 </body>
 </html>
