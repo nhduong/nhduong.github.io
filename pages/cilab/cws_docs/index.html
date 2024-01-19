@@ -397,12 +397,12 @@ last update 2023-12-20</p>
 <li>Run VS Code on your local machine.</li>
 <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote-SSH extension</a> in VS Code.</li>
 </ul>
-<img src="1.ssh.png" alt="alt text" width="400"/>
+<img src="1.ssh.png" alt="alt text" width="900"/>
 <ul>
 <li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
 <li>Type <code>Remote-SSH: Open SSH Configuration File...</code> and press <code>Enter</code>.</li>
 </ul>
-<img src="2.config.png" alt="alt text" width="400"/>
+<img src="2.config.png" alt="alt text" width="900"/>
 <ul>
 <li>
 <p>Select:</p>
@@ -431,20 +431,20 @@ last update 2023-12-20</p>
 <li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
 <li>Type <code>Remote-SSH: Connect to Host...</code> and press <code>Enter</code>.</li>
 </ul>
-<img src="3.connect.png" alt="alt text" width="400"/>
+<img src="3.connect.png" alt="alt text" width="900"/>
 <ul>
 <li>Select the name you set in the previous step and press <code>Enter</code>.</li>
 <li>Enter your password and press <code>Enter</code>.</li>
 <li>Wait for the connection to be established.</li>
 <li>You should see the workstation name in the bottom left corner of the VS Code window. In the example below, the server name is <code>cilabws05</code>.</li>
 </ul>
-<img src="4.connected.png" alt="alt text" width="400"/>
+<img src="4.connected.png" alt="alt text" width="900"/>
 <ul>
 <li>Let's look for available GPUs. Open a new terminal by selecting <code>Terminal</code> -&gt; <code>New Terminal</code> from the top menu.</li>
 <li>Type <code>nvidia-smi</code> and press <code>Enter</code>.</li>
 <li>In the example below, GPU #0 is being used by someone else while GPUs #1, #2, and #3 are free.</li>
 </ul>
-<img src="5.nvidia-smi.png" alt="alt text" width="400"/>
+<img src="5.nvidia-smi.png" alt="alt text" width="900"/>
 <h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment">4. Setting up an environment</a></h2>
 <blockquote>
 <p><strong><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></strong></p>
@@ -502,7 +502,7 @@ print(torch.cuda.is_available())
 </ul>
 </li>
 </ul>
-<img src="6.env.png" alt="alt text" width="400" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
+<img src="6.env.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
 <ul>
 <li>In the example above, <code>base</code> environment was selected.</li>
 <li>Run the code:
@@ -522,7 +522,7 @@ print(torch.cuda.is_available())
 </ul>
 </li>
 </ul>
-<img src="7.run.png" alt="alt text" width="400" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
+<img src="7.run.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
 <ul>
 <li>
 <p>For data storage, a user can access the following directories:</p>
