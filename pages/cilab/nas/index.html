@@ -368,7 +368,7 @@ code {
 <!-- # CILab Workstation Usage -->
 <h1 id="cilab-workstation-usage">CILAB NAS USAGE</h1>
 	<p>
-		created by <a href="mailto:duongnguyen@mme.dongguk.edu">Duong Nguyen</a><br>
+		based on <a href="mailto:mtntruong@mme.dongguk.edu ">Mai</a>'s tutorial<br>
 		last update 2024-03-08
 	</p>
 	<br />
@@ -449,6 +449,20 @@ code {
 		<li><strong>PAPER-WORK</strong> is for storing our lab's documents including salary, invoice, certificates, etc.</li>
 		<li><strong>PUBLIC</strong> is for sharing materials from graduated members, this folder is read-only.</li>
 	</ul>
+
+<h2>Known Issues</h2>
+	<ul>
+		<li><code>fuse: bad mount point … Transport endpoint is not connected</code>
+			<blockquote>
+				<p>When you encounter this error, you should unmount the folder via <code>fusermount -u path_to_your_local_folder</code> and then mount it again.</p>
+			</blockquote>
+		<li>Cannot open files in NAS folder via File Explorer
+			<blockquote>
+				<p>The files should be opened with "Open With" feature of the File Explorer.</p>
+			</blockquote>
+
+<br />
+<br />	
 
 </body>
 </html>
