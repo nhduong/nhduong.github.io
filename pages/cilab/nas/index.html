@@ -372,30 +372,32 @@ code {
 		last update 2024-03-08
 	</p>
 	<br />
-	<blockquote>
-		<p><strong><em></em>What is NAS for?</strong></p>
-		<ul>
-			<li>Storing/sharing materials for research, e.g., papers, datasets, codes, trained models, etc.</li>
-			<li>Being linked to workstations for remote development.</li>
-		</ul>
-		<p><strong><em></em>WARNING: DO NOT keep any sensitive information on NAS!</strong></p>
-	</blockquote>
+
+	<p><strong>What is NAS for?</strong></p>
+	<ul>
+		<li>Storing/sharing materials for research, e.g., papers, datasets, codes, trained models, etc.</li>
+		<li>Being linked to workstations for remote development.</li>
+	</ul>
+	<blockquote><em>
+		<p><strong>DO NOT keep any sensitive information on NAS!</strong></p>
+	</em></blockquote>
 <br />
 <h2>1. Gaining Access To NAS</h2>
 	<ul>
 		<li>The administrator will provide you with a username and a password to access the NAS.</li>
 		<li>After logging in for the first time, you should change your password via <strong>[NAS Web Interface]</strong> > <strong>[User Logo]</strong> > <strong>Personal</strong> > <strong>Account</strong> > enter the current password and the new password > <strong>OK</strong>.</li>
-		<blockquote>
+		<blockquote><em>
 			<p><strong>[NAS Web Interface]</strong> will be introduced in the next section.</p>
-		</blockquote>
+		</em></blockquote>
 	</ul>
 
 <h2>2. Connecting To NAS</h2>
+	<p>There are several ways to connect to NAS, each with its own advantages and disadvantages. Try them all and choose the one that best suits your needs.</p>
 	<ol type="a">
 		<li>NAS Web Interface</li>
-			<blockquote>
+			<blockquote><em>
 				<p>This method provides a user-friendly interface for accessing NAS via a web browser. Also, for now, it is the only way to manage your NAS account.</p>
-			</blockquote>
+			</em></blockquote>
 			<ul>
 				<li>Open a web browser and go to <a href="https://223.195.240.67:1006">https://223.195.240.67:1006</a></li>
 				<li>Enter your username and password.</li>
@@ -407,29 +409,29 @@ code {
 				</ul>
 			</ul>
 		<li>File Explorer</li>
-			<blockquote>
+			<blockquote><em>
 				<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
-			</blockquote>
+			</em></blockquote>
 			<ul>
 				<li>Open a terminal on your local machine.</li>
 				<li>Run the following command to mount a NAS folder on your machine:
 <pre>
 <code>sshfs <strong>your_username</strong>@223.195.240.67:/<strong>your_username</strong>/path_to_a_NAS_folder -p 1004 path_to_your_local_folder</code>
 </pre>
-					<blockquote>
+					<blockquote><em>
 						<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
-					</blockquote>
-					<blockquote>
+					</em></blockquote>
+					<blockquote><em>
 						<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
-					</blockquote>
+					</em></blockquote>
 			</ul>
 		<li>SFTP Clients</li>
-			<blockquote>
-				<p>There are many SFTP clients available for you to choose from. Here, we will use <strong>FileZilla</strong> as an example.</p>
-			</blockquote>
+			<blockquote><em>
+				<p>There are many SFTP clients available for you to choose from. Here, we will use FileZilla as an example.</p>
+			</em></blockquote>
 			<ul>
-				<li>Download and install <strong>FileZilla</strong> from <a href="https://filezilla-project.org/">https://filezilla-project.org/</a></li>
-				<li>Open <strong>FileZilla</strong> and go to <strong>File</strong> > <strong>Site Manager</strong> > <strong>New Site</strong></li>
+				<li>Download and install <a href="https://filezilla-project.org/">FileZilla</a></li>
+				<li>Open FileZilla and go to <strong>File</strong> > <strong>Site Manager</strong> > <strong>New Site</strong></li>
 				<li>Fill in the following information:
 					<ul>
 						<li><strong>Protocol</strong>: SFTP - SSH File Transfer Protocol
@@ -450,16 +452,15 @@ code {
 		<li><strong>PUBLIC</strong> is for sharing materials from graduated members, this folder is read-only.</li>
 	</ul>
 
+<br />
+<br />
+
 <h2>Known Issues</h2>
 	<ul>
 		<li><code>fuse: bad mount point … Transport endpoint is not connected</code>
-			<blockquote>
-				<p>When you encounter this error, you should unmount the folder via <code>fusermount -u path_to_your_local_folder</code> and then mount it again.</p>
-			</blockquote>
+		<p> When you encounter this error, you should unmount the folder via <code>fusermount -u path_to_your_local_folder</code> and then mount it again.</p>
 		<li>Cannot open files in NAS folder via File Explorer
-			<blockquote>
-				<p>The files should be opened with "Open With" feature of the File Explorer.</p>
-			</blockquote>
+		<p>The files should be opened with "Open With" feature of the File Explorer.</p>
 
 <br />
 <br />	
