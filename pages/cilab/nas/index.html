@@ -367,36 +367,34 @@ code {
   </script>
 <!-- # CILab Workstation Usage -->
 <h1 id="cilab-workstation-usage">CILAB NAS USAGE</h1>
-<p>created by <a href="mailto:duongnguyen@mme.dongguk.edu">Duong Nguyen</a><br>
-last update 2024-03-08</p>
+	<p>
+		created by <a href="mailto:duongnguyen@mme.dongguk.edu">Duong Nguyen</a><br>
+		last update 2024-03-08
+	</p>
+	<br />
+	<blockquote>
+		<p><strong><em></em>What is NAS for?</strong></p>
+		<ul>
+			<li>Storing/sharing materials for research, e.g., papers, datasets, codes, trained models, etc.</li>
+			<li>Being linked to workstations for remote development.</li>
+		</ul>
+		<p><strong><em></em>WARNING: DO NOT keep any sensitive information on NAS!</strong></p>
+	</blockquote>
 <br />
-<blockquote>
-	<p><strong><em></em>What is NAS for?</strong></p>
+<h2>1. Gaining Access To NAS</h2>
 	<ul>
-		<li>Storing/sharing materials for research, e.g., papers, datasets, codes, trained models, etc.</li>
-		<li>Being linked to workstations for remote development.</li>
+		<li>The administrator will provide you with a username and a password to access the NAS.</li>
+		<li>After logging in for the first time, you should change your password via [<strong>NAS Web Interface</strong>] > <strong>[User Logo]</strong> > <strong>[Personal]</strong> > <strong>[Account]</strong> > enter the current password and the new password > <strong>[OK]</strong>.</li>
+		<blockquote>
+			<p>[<strong>NAS Web Interface</strong>] will be introduced in the next section.</p>
+		</blockquote>
 	</ul>
-	<p><strong><em></em>WARNING: DO NOT keep any sensitive information on NAS!</strong></p>
-</blockquote>
-<br />
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#1-reservation">Reservation</a></li>
-<li><a href="#2-ssh-configuration">SSH configuration</a> (needs to be done only <strong>ONE</strong> time)</li>
-<li><a href="#3-connecting-to-a-server">Connecting to a server</a></li>
-<li><a href="#4-setting-up-an-environment">Setting up an environment</a> (needs to be done only <strong>ONE</strong> time)</li>
-<li><a href="#5-developing-on-a-server">Developing on a server</a></li>
-<li><a href="#6-other-useful-tips">Other useful tips</a></li>
-</ul>
-<br />
-<br />
-<br />
-<blockquote>
-<p><strong><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></strong></p>
-</blockquote>
-<h2 id="1-reservation"><a href="#1-reservation">1. Reservation</a></h2>
-<p>Head to the <ins>CILAB_Shared_GPUs_Sheet</ins> to reserve the GPU(s) you need.</p>
-<blockquote>
+
+<h2>2. Connecting To NAS</h2>
+	<p>
+		You can connect to the NAS via <a href="https://www.qnap.com/en/how-to/tutorial/article/how-to-connect-to-a-qnap-nas-using-macos">SMB</a> or <a href="https://www.qnap.com/en/how-to/tutorial/article/how-to-connect-to-a-qnap-nas-using-windows">FTP</a>.
+	</p>
+<!-- <blockquote>
 <p><strong><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></strong></p>
 </blockquote>
 <h2 id="2-ssh-configuration"><a href="#2-ssh-configuration">2. SSH configuration</a></h2>
@@ -557,7 +555,7 @@ print(torch.cuda.is_available())
 <p><strong><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></strong></p>
 </blockquote>
 <pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &amp;
-</div></code></pre>
+</div></code></pre> -->
 
 </body>
 </html>
