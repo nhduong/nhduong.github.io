@@ -104,8 +104,10 @@ img {
 	max-height: 100%;
 }
 
+/* href format */
 a {
 	text-decoration: none;
+	color: #6021c7;
 }
 
 a:hover {
@@ -328,7 +330,7 @@ pre:not(.hljs) {
 
 blockquote {
 	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
+	border-color: #6021c7;
 }
 
 .emoji {
@@ -342,7 +344,7 @@ code {
 
 /* for inline code */
 :not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
+	color: #6021c7; /* Change the old color so it seems less like an error */
 	font-size: inherit;
 }
 
@@ -384,12 +386,12 @@ last update 2023-12-20</p>
 <blockquote>
 <p><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></p>
 </blockquote>
-<h2 id="1-reservation"><a href="#1-reservation">1. Reservation</a></h2>
+<h2 id="1-reservation"><a href="#1-reservation" style="color:#000000;text-decoration:none">1. Reservation</a></h2>
 <p>Head to the <ins>CILAB_Shared_GPUs_Sheet</ins> to reserve the GPU(s) you need.</p>
 <blockquote>
 <p><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></p>
 </blockquote>
-<h2 id="2-ssh-configuration"><a href="#2-ssh-configuration">2. SSH configuration</a></h2>
+<h2 id="2-ssh-configuration"><a href="#2-ssh-configuration" style="color:#000000;text-decoration:none">2. SSH configuration</a></h2>
 <blockquote>
 <p><em>SSH configuration needs to be done only <strong>ONE</strong> time. Go to <a href="#3-connecting-to-a-server">Connecting to a server</a> if you have already done this before.</em></p>
 </blockquote>
@@ -425,7 +427,7 @@ last update 2023-12-20</p>
 <p>Save the file and close it.</p>
 </li>
 </ul>
-<h2 id="3-connecting-to-a-server"><a href="#3-connecting-to-a-server">3. Connecting to a server</a></h2>
+<h2 id="3-connecting-to-a-server"><a href="#3-connecting-to-a-server" style="color:#000000;text-decoration:none">3. Connecting to a server</a></h2>
 <ul>
 <li>Run VS Code on your local machine (if you haven't.)</li>
 <li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
@@ -445,7 +447,7 @@ last update 2023-12-20</p>
 <li>In the example below, GPU #0 is being used by someone else while GPUs #1, #2, and #3 are free.</li>
 </ul>
 <img src="5.nvidia-smi.png" alt="alt text" width="900"/>
-<h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment">4. Setting up an environment</a></h2>
+<h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment" style="color:#000000;text-decoration:none">4. Setting up an environment</a></h2>
 <blockquote>
 <p><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></p>
 </blockquote>
@@ -479,7 +481,7 @@ last update 2023-12-20</p>
 </code></pre>
 </li>
 </ul>
-<h2 id="5-developing-on-a-server"><a href="#5-developing-on-a-server">5. Developing on a server</a></h2>
+<h2 id="5-developing-on-a-server"><a href="#5-developing-on-a-server" style="color:#000000;text-decoration:none">5. Developing on a server</a></h2>
 <ul>
 <li>
 <p>Given a connected VS Code window</p>
@@ -533,7 +535,7 @@ print(torch.cuda.is_available())
 <p>For the most part, you should store datasets in the external hard drive while keeping your codes in the home directory.</p>
 </li>
 </ul>
-<h2 id="6-other-useful-tips"><a href="#6-other-useful-tips">6. Other useful tips</a></h2>
+<h2 id="6-other-useful-tips"><a href="#6-other-useful-tips" style="color:#000000;text-decoration:none">6. Other useful tips</a></h2>
 	<ul>
 		<li>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</li>
 		<li>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</li>
