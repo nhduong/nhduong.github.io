@@ -382,16 +382,16 @@ last update 2023-12-20</p>
 <br />
 <br />
 <blockquote>
-<p><strong><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></strong></p>
+<p><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></p>
 </blockquote>
 <h2 id="1-reservation"><a href="#1-reservation">1. Reservation</a></h2>
 <p>Head to the <ins>CILAB_Shared_GPUs_Sheet</ins> to reserve the GPU(s) you need.</p>
 <blockquote>
-<p><strong><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></strong></p>
+<p><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></p>
 </blockquote>
 <h2 id="2-ssh-configuration"><a href="#2-ssh-configuration">2. SSH configuration</a></h2>
 <blockquote>
-<p><strong><em>SSH configuration needs to be done only <strong>ONE</strong> time. Go to <a href="#3-connecting-to-a-server">Connecting to a server</a> if you have already done this before.</em></strong></p>
+<p><em>SSH configuration needs to be done only <strong>ONE</strong> time. Go to <a href="#3-connecting-to-a-server">Connecting to a server</a> if you have already done this before.</em></p>
 </blockquote>
 <ul>
 <li>Run VS Code on your local machine.</li>
@@ -447,7 +447,7 @@ last update 2023-12-20</p>
 <img src="5.nvidia-smi.png" alt="alt text" width="900"/>
 <h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment">4. Setting up an environment</a></h2>
 <blockquote>
-<p><strong><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></strong></p>
+<p><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></p>
 </blockquote>
 <ul>
 <li>
@@ -516,7 +516,7 @@ print(torch.cuda.is_available())
 </div></code></pre>
 <p>As shown in the figure below, the output is <code>True</code>, which means at least one GPU is available.</p>
 <blockquote>
-<p><strong><em><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot;</code> and <code>CUDA_VISIBLE_DEVICES=&quot;1&quot;</code> are important. They tell the system to use GPU #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others.</em></strong></p>
+<p><em><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot;</code> and <code>CUDA_VISIBLE_DEVICES=&quot;1&quot;</code> are important. They tell the system to use GPU #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others.</em></p>
 </blockquote>
 </li>
 </ul>
@@ -535,16 +535,16 @@ print(torch.cuda.is_available())
 </ul>
 <h2 id="6-other-useful-tips"><a href="#6-other-useful-tips">6. Other useful tips</a></h2>
 <blockquote>
-<p><strong><em>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</em></strong></p>
+<p><em>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</em></p>
 </blockquote>
 <blockquote>
-<p><strong><em>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</em></strong></p>
+<p><em>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</em></p>
 </blockquote>
 <blockquote>
-<p><strong><em>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</em></strong></p>
+<p><em>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</em></p>
 </blockquote>
 <blockquote>
-<p><strong><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></strong></p>
+<p><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></p>
 </blockquote>
 <pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &amp;
 </div></code></pre>
