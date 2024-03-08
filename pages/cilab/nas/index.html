@@ -384,9 +384,9 @@ code {
 <h2>1. Gaining Access To NAS</h2>
 	<ul>
 		<li>The administrator will provide you with a username and a password to access the NAS.</li>
-		<li>After logging in for the first time, you should change your password via [<strong>NAS Web Interface</strong>] > <strong>[User Logo]</strong> > <strong>[Personal]</strong> > <strong>[Account]</strong> > enter the current password and the new password > <strong>[OK]</strong>.</li>
+		<li>After logging in for the first time, you should change your password via <strong>[NAS Web Interface]</strong> > <strong>[User Logo]</strong> > <strong>Personal</strong> > <strong>Account</strong> > enter the current password and the new password > <strong>OK</strong>.</li>
 		<blockquote>
-			<p>[<strong>NAS Web Interface</strong>] will be introduced in the next section.</p>
+			<p><strong>[NAS Web Interface]</strong> will be introduced in the next section.</p>
 		</blockquote>
 	</ul>
 
@@ -399,17 +399,21 @@ code {
 		<ul>
 			<li>Open a web browser and go to <a href="https://223.195.240.67:1006">https://223.195.240.67:1006</a></li>
 			<li>Enter your username and password.</li>
-			<li>Click <strong>[Sign In]</strong>.</li>
+			<li>Click <strong>Sign In</strong>.</li>
 		</ul>
 		<li>File Explorer</li>
 		<blockquote>
-			<p>[<strong>NAS Web Interface</strong>] will be introduced in the next section.</p>
+			<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
 		</blockquote>
-		This method is for accessing NAS via a local folder on your computer/workstation.
-		sshfs nhduong@223.195.240.67:/nhduong/home/nhduong/downloads/csd/outputs -p 1004 /home/nhduong/downloads/csd/outputs
 		<ul>
-			<li>Windows: Open <strong>[File Explorer]</strong> > <strong>[This PC]</strong> > <strong>[Map network drive]</strong> > <strong>[Map network drive]</strong> > <strong>[Drive]</strong> > <strong>[Folder]</strong> > <strong>[Connect using different credentials]</strong> > enter <strong>\\nas.cilab.dongguk.edu\your_username</strong> > <strong>[Finish]</strong> > enter your username and password.</li>
-			<li>MacOS: Open <strong>[Finder]</strong> > <strong>[Go]</strong> > <strong>[Connect to Server]</strong> > enter <strong>smb://nas.cilab.dongguk.edu/your_username</strong> > <strong>[Connect]</strong> > enter your username and password.</li>
+			<li>Open a terminal on your local machine.</li>
+			<li>Run the following command to mount a NAS folder on your machine:
+<pre>
+<code>sshfs <strong>your_username</strong>@223.195.240.67:/<strong>your_username</strong>/path_to_a_NAS_folder -p 1004 path_to_your_local_folder</code>
+</pre>
+				<blockquote>
+					<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
+				</blockquote>
 		</ul>
 	</ol>
 <!-- <blockquote>
