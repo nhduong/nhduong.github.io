@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CILab Workstation Usage</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- # CILab Workstation Usage -->
+<h1 id="cilab-workstation-usage">CILAB WORKSTATION USAGE</h1>
+<p>created by <a href="mailto:duongnguyen@mme.dongguk.edu">Duong Nguyen</a><br>
+last update 2023-12-20</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#1-reservation">Reservation</a></li>
+<li><a href="#2-ssh-configuration">SSH configuration</a> (needs to be done only <strong>ONE</strong> time)</li>
+<li><a href="#3-connecting-to-a-server">Connecting to a server</a></li>
+<li><a href="#4-setting-up-an-environment">Setting up an environment</a> (needs to be done only <strong>ONE</strong> time)</li>
+<li><a href="#5-developing-on-a-server">Developing on a server</a></li>
+<li><a href="#6-other-useful-tips">Other useful tips</a></li>
+</ul>
+<br />
+<br />
+<br />
+<blockquote>
+<p><strong><em>Note that this document is written particularly for <a href="https://code.visualstudio.com/">VS Code</a> users. If you are using PyCharm, you will need a Professional version (which is free for those who has a student email address) for remote connections and please refer to <a href="https://www.jetbrains.com/help/pycharm/remote-development-starting-page.html">this tutorial</a>.</em></strong></p>
+</blockquote>
+<h2 id="1-reservation"><a href="#1-reservation">1. Reservation</a></h2>
+<p>Head to the <ins>CILAB_Shared_GPUs_Sheet</ins> to reserve the GPU(s) you need.</p>
+<blockquote>
+<p><strong><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></strong></p>
+</blockquote>
+<h2 id="2-ssh-configuration"><a href="#2-ssh-configuration">2. SSH configuration</a></h2>
+<blockquote>
+<p><strong><em>SSH configuration needs to be done only <strong>ONE</strong> time. Go to <a href="#3-connecting-to-a-server">Connecting to a server</a> if you have already done this before.</em></strong></p>
+</blockquote>
+<ul>
+<li>Run VS Code on your local machine.</li>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote-SSH extension</a> in VS Code.</li>
+</ul>
+<img src="1.ssh.png" alt="alt text" width="900"/>
+<ul>
+<li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
+<li>Type <code>Remote-SSH: Open SSH Configuration File...</code> and press <code>Enter</code>.</li>
+</ul>
+<img src="2.config.png" alt="alt text" width="900"/>
+<ul>
+<li>
+<p>Select:</p>
+<ul>
+<li>Linux: <code>~/.ssh/config</code></li>
+<li>Windows: <code>C:\Users\your_username\.ssh\config</code></li>
+<li>MacOS: <code>/Users/your_username/.ssh/config</code></li>
+</ul>
+<p>then press <code>Enter</code>.</p>
+</li>
+<li>
+<p>Add the following lines to the file:</p>
+<pre><code>  Host any_name_you_like
+      HostName workstation_ip_address
+      User your_username
+      Port 1004
+</code></pre>
+</li>
+<li>
+<p>Save the file and close it.</p>
+</li>
+</ul>
+<h2 id="3-connecting-to-a-server"><a href="#3-connecting-to-a-server">3. Connecting to a server</a></h2>
+<ul>
+<li>Run VS Code on your local machine (if you haven't.)</li>
+<li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
+<li>Type <code>Remote-SSH: Connect to Host...</code> and press <code>Enter</code>.</li>
+</ul>
+<img src="3.connect.png" alt="alt text" width="900"/>
+<ul>
+<li>Select the name you set in the previous step and press <code>Enter</code>.</li>
+<li>Enter your password and press <code>Enter</code>.</li>
+<li>Wait for the connection to be established.</li>
+<li>You should see the workstation name in the bottom left corner of the VS Code window. In the example below, the server name is <code>cilabws05</code>.</li>
+</ul>
+<img src="4.connected.png" alt="alt text" width="900"/>
+<ul>
+<li>Let's look for available GPUs. Open a new terminal by selecting <code>Terminal</code> -&gt; <code>New Terminal</code> from the top menu.</li>
+<li>Type <code>nvidia-smi</code> and press <code>Enter</code>.</li>
+<li>In the example below, GPU #0 is being used by someone else while GPUs #1, #2, and #3 are free.</li>
+</ul>
+<img src="5.nvidia-smi.png" alt="alt text" width="900"/>
+<h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment">4. Setting up an environment</a></h2>
+<blockquote>
+<p><strong><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Given a connected VS Code window to a server</p>
+</li>
+<li>
+<p>Download Anaconda via <code>wget</code> command in a terminal. For example,</p>
+<pre class="hljs"><code><div>wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+</div></code></pre>
+</li>
+<li>
+<p>Then install Anaconda</p>
+<pre class="hljs"><code><div>bash Anaconda3-2023.09-0-Linux-x86_64.sh
+</div></code></pre>
+</li>
+<li>
+<p>After that, create a new environment via <code>conda</code> command in a terminal</p>
+<pre class="hljs"><code><div>conda create -n your_env_name
+</div></code></pre>
+</li>
+<li>
+<p>Activate the environment</p>
+<pre class="hljs"><code><div>conda activate your_env_name
+</div></code></pre>
+</li>
+<li>
+<p>Then, you can install any packages you need. Let's take PyTorch as an example</p>
+<pre class="hljs"><code><div>pip install torch torchvision torchaudio
+</div></code></pre>
+</li>
+</ul>
+<h2 id="5-developing-on-a-server"><a href="#5-developing-on-a-server">5. Developing on a server</a></h2>
+<ul>
+<li>
+<p>Given a connected VS Code window</p>
+</li>
+<li>
+<p>Let's create a new Python file by pressing <code>Ctrl+N</code> (Windows/Linux) or <code>⌘N</code> (MacOS).</p>
+</li>
+<li>
+<p>Type the following code in the file and save it as <code>test.py</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> torch
+print(torch.cuda.is_available())
+</div></code></pre>
+</li>
+<li>
+<p>Select a developing environment:</p>
+<ul>
+<li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
+<li>Type <code>Python: Select Interpreter</code> and press <code>Enter</code>.</li>
+<li>Select the environment you want to use and press <code>Enter</code>.</li>
+</ul>
+</li>
+</ul>
+<img src="6.env.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
+<ul>
+<li>In the example above, <code>base</code> environment was selected.</li>
+<li>Run the code:
+<ul>
+<li>
+<p>Use the existing terminal or create a new one via <code>Command Palette</code> &gt; <code>Terminal: Create New Terminal</code>.</p>
+</li>
+<li>
+<p>Enter the following command in the terminal and press <code>Enter</code>:</p>
+<pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; python test.py
+</div></code></pre>
+<p>As shown in the figure below, the output is <code>True</code>, which means at least one GPU is available.</p>
+<blockquote>
+<p><strong><em><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot;</code> and <code>CUDA_VISIBLE_DEVICES=&quot;1&quot;</code> are important. They tell the system to use GPU #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others.</em></strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<img src="7.run.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
+<ul>
+<li>
+<p>For data storage, a user can access the following directories:</p>
+<ol>
+<li><code>/home/your_username</code>: your home directory</li>
+<li><code>/media/.../your_username</code>: your external hard drive</li>
+</ol>
+<p>For the most part, you should store datasets in the external hard drive while keeping your codes in the home directory.</p>
+</li>
+</ul>
+<h2 id="6-other-useful-tips"><a href="#6-other-useful-tips">6. Other useful tips</a></h2>
+<blockquote>
+<p><strong><em>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></strong></p>
+</blockquote>
+<pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &amp;
+</div></code></pre>
+
+</body>
+</html>
