@@ -415,11 +415,11 @@ last update 2023-12-20</p>
 </li>
 <li>
 <p>Add the following lines to the file:</p>
-<pre><code>  Host any_name_you_like
-      HostName workstation_ip_address
-      User your_username
-      Port 1004
-</code></pre>
+<pre><code>Host any_name_you_like
+	HostName workstation_ip_address
+    User your_username
+    Port 1004</code>
+</pre>
 </li>
 <li>
 <p>Save the file and close it.</p>
@@ -455,28 +455,28 @@ last update 2023-12-20</p>
 </li>
 <li>
 <p>Download Anaconda via <code>wget</code> command in a terminal. For example,</p>
-<pre class="hljs"><code><div>wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
-</div></code></pre>
+<pre class="hljs"><code>wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+</code></pre>
 </li>
 <li>
 <p>Then install Anaconda</p>
-<pre class="hljs"><code><div>bash Anaconda3-2023.09-0-Linux-x86_64.sh
-</div></code></pre>
+<pre class="hljs"><code>bash Anaconda3-2023.09-0-Linux-x86_64.sh
+</code></pre>
 </li>
 <li>
 <p>After that, create a new environment via <code>conda</code> command in a terminal</p>
-<pre class="hljs"><code><div>conda create -n your_env_name
-</div></code></pre>
+<pre class="hljs"><code>conda create -n your_env_name
+</code></pre>
 </li>
 <li>
 <p>Activate the environment</p>
-<pre class="hljs"><code><div>conda activate your_env_name
-</div></code></pre>
+<pre class="hljs"><code>conda activate your_env_name
+</code></pre>
 </li>
 <li>
 <p>Then, you can install any packages you need. Let's take PyTorch as an example</p>
-<pre class="hljs"><code><div>pip install torch torchvision torchaudio
-</div></code></pre>
+<pre class="hljs"><code>pip install torch torchvision torchaudio
+</code></pre>
 </li>
 </ul>
 <h2 id="5-developing-on-a-server"><a href="#5-developing-on-a-server">5. Developing on a server</a></h2>
@@ -489,9 +489,9 @@ last update 2023-12-20</p>
 </li>
 <li>
 <p>Type the following code in the file and save it as <code>test.py</code>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">import</span> torch
+<pre class="hljs"><code><span class="hljs-keyword">import</span> torch
 print(torch.cuda.is_available())
-</div></code></pre>
+</code></pre>
 </li>
 <li>
 <p>Select a developing environment:</p>
@@ -512,8 +512,8 @@ print(torch.cuda.is_available())
 </li>
 <li>
 <p>Enter the following command in the terminal and press <code>Enter</code>:</p>
-<pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; python test.py
-</div></code></pre>
+<pre class="hljs"><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; python test.py
+</code></pre>
 <p>As shown in the figure below, the output is <code>True</code>, which means at least one GPU is available.</p>
 <blockquote>
 <p><em><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot;</code> and <code>CUDA_VISIBLE_DEVICES=&quot;1&quot;</code> are important. They tell the system to use GPU #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others.</em></p>
@@ -534,20 +534,16 @@ print(torch.cuda.is_available())
 </li>
 </ul>
 <h2 id="6-other-useful-tips"><a href="#6-other-useful-tips">6. Other useful tips</a></h2>
-<blockquote>
-<p><em>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</em></p>
-</blockquote>
-<blockquote>
-<p><em>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</em></p>
-</blockquote>
-<blockquote>
-<p><em>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</em></p>
-</blockquote>
-<blockquote>
-<p><em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em></p>
-</blockquote>
-<pre class="hljs"><code><div>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &amp;
-</div></code></pre>
+	<ul>
+		<li>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</li>
+		<li>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</li>
+		<li>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</li>
+		<li>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</li>
+<pre class="hljs">
+<code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &</code>
+</pre>
+	</ul>
 
+<br /><br /><br /><br /><br />
 </body>
 </html>
