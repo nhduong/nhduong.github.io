@@ -393,28 +393,31 @@ code {
 <h2>2. Connecting To NAS</h2>
 	<ol type="a">
 		<li>NAS Web Interface</li>
-		<blockquote>
-			<p>This method provides a user-friendly interface for accessing NAS via a web browser. Also, for now, it is the only way to manage your NAS account.</p>
-		</blockquote>
-		<ul>
-			<li>Open a web browser and go to <a href="https://223.195.240.67:1006">https://223.195.240.67:1006</a></li>
-			<li>Enter your username and password.</li>
-			<li>Click <strong>Sign In</strong>.</li>
-		</ul>
+			<blockquote>
+				<p>This method provides a user-friendly interface for accessing NAS via a web browser. Also, for now, it is the only way to manage your NAS account.</p>
+			</blockquote>
+			<ul>
+				<li>Open a web browser and go to <a href="https://223.195.240.67:1006">https://223.195.240.67:1006</a></li>
+				<li>Enter your username and password.</li>
+				<li>Click <strong>Sign In</strong>.</li>
+			</ul>
 		<li>File Explorer</li>
-		<blockquote>
-			<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
-		</blockquote>
-		<ul>
-			<li>Open a terminal on your local machine.</li>
-			<li>Run the following command to mount a NAS folder on your machine:
+			<blockquote>
+				<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
+			</blockquote>
+			<ul>
+				<li>Open a terminal on your local machine.</li>
+				<li>Run the following command to mount a NAS folder on your machine:
 <pre>
 <code>sshfs <strong>your_username</strong>@223.195.240.67:/<strong>your_username</strong>/path_to_a_NAS_folder -p 1004 path_to_your_local_folder</code>
 </pre>
-				<blockquote>
-					<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
-				</blockquote>
-		</ul>
+					<blockquote>
+						<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
+					</blockquote>
+					<blockquote>
+						<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
+					</blockquote>
+			</ul>
 	</ol>
 <!-- <blockquote>
 <p><strong><em>Without further notice, the maximun number of GPUs can be used at the same time is two (2) for cilabws05 and five (5) for cilabws09! Exceeding this limit will result in shutting down your process(es) and loosing your data.</em></strong></p>
