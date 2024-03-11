@@ -382,6 +382,12 @@ last update 2024-03-11</p>
 			<pre>ssh your_username@server_ip -p 1004</pre>
 			Here, <code>your_username</code> is your username and <code>server_ip</code> is the IP address of the workstation, and <code>-p 1004</code> provides the port number.
 			<li>Enter your password and you will be connected to the workstation</li>
+			<li>Let's check if the workstation has GPUs by typing the following command in the terminal</li>
+			<pre>nvidia-smi</pre>
+			As shown in the figure below, this workstation has 4 GPUs, one of which is being used by another user.
+			<p>
+				<img src="1.nvidia_smi.png" alt="alt text" width="900"/>
+			</p>
 		</ul>
 	<li>Setting up an environment</li>
 		<ul>
@@ -396,14 +402,29 @@ last update 2024-03-11</p>
 			<pre>conda activate your_env_name</pre>
 			<li>Then, you can install any packages you need. Let's take PyTorch as an example</li>
 			<pre>pip install torch torchvision torchaudio</pre>
+			Now you are ready to develop your very first project on the workstation!
 		</ul>
 	<li>Developing on a workstation</li>
 		<ul>
 			<li>Given a connected terminal to the workstation</li>
-			<li>Let's create a new Python file by pressing <code>Ctrl+N</code> (Windows/Linux) or <code>⌘N</code> (MacOS)</li>
-			<li>Type the following code in the file and save it as <code>test.py</code>:</li>
-			<pre><code>import torch
-
+			<li>Let's create a new Python file by typing
+			<pre>nano test.py</pre>
+			then press <code>Enter</code></li>
+			<li>Type the following code in the file:</li>
+			<pre>import torch
+print(torch.cuda.is_available())</pre>
+			<li>Save the file by pressing <code>Ctrl+X</code>, then press <code>Y</code> and <code>Enter</code></li>
+			<li>Run the code by typing the following command in the terminal and press <code>Enter</code></li>
+			<pre>CUDA_DEVICE_ORDER="PCI_BUS_ID" CUDA_VISIBLE_DEVICES="0,1" python test.py</pre>
+			<blockquote>
+				<em>In the command above, <code>CUDA_DEVICE_ORDER="PCI_BUS_ID"</code> and <code>CUDA_VISIBLE_DEVICES="0,1"</code> are important. They tell the system to use GPU #0 and #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others. In general, only one GPU, e.g., <code>CUDA_VISIBLE_DEVICES="0"</code>, should be enough for most of the tasks.</em>
+			</blockquote>
+			<p>
+				As shown in the figure below, the output is <code>True</code>, which means at least one GPU is available.
+			</p>
+			<p>
+				<img src="2.run.png" alt="alt text" width="900"/>
+			</p>
 
 <h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment" style="color:#000000;text-decoration:none">4. Setting up an environment</a></h2>
 <blockquote>
