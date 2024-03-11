@@ -375,7 +375,7 @@ last update 2024-03-11</p>
 <p>To use a CILab workstation for research, you need to set up an environment on the it first. This document will guide you through the process.</p>
 
 <ol style="list-style-type: decimal">
-	<li>Connect to a CILab workstation</li>
+	<li>Connecting to a CILab workstation</li>
 		<ul>
 			<li>Open a terminal on your local machine</li>
 			<li>Connect to a CILab workstation via SSH with the following command</li>
@@ -413,7 +413,7 @@ last update 2024-03-11</p>
 			<li>Type the following code in the file:</li>
 			<pre>import torch
 print(torch.cuda.is_available())</pre>
-			<li>Save the file by pressing <code>Ctrl+X</code>, then press <code>Y</code> and <code>Enter</code></li>
+			<li>Save the file by pressing <code>Ctrl+X</code> (Windows/Linux) or <code>control+X</code> (Mac), then press <code>Y</code> and <code>Enter</code></li>
 			<li>Run the code by typing the following command in the terminal and press <code>Enter</code></li>
 			<pre>CUDA_DEVICE_ORDER="PCI_BUS_ID" CUDA_VISIBLE_DEVICES="0,1" python test.py</pre>
 			<blockquote>
@@ -426,104 +426,19 @@ print(torch.cuda.is_available())</pre>
 				<img src="2.run.png" alt="alt text" width="900"/>
 			</p>
 
-<h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment" style="color:#000000;text-decoration:none">4. Setting up an environment</a></h2>
-<blockquote>
-<p><em>This step needs to be done only <strong>ONE</strong> time. Navigate to <a href="#5-developing-on-a-server">Developing on a server</a> if you have already done this before.</em></p>
-</blockquote>
-<ul>
-<li>
-<p>Given a connected VS Code window to a server</p>
-</li>
-<li>
-<p>Download Anaconda via <code>wget</code> command in a terminal. For example,</p>
-<pre class="hljs"><code>wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
-</code></pre>
-</li>
-<li>
-<p>Then install Anaconda</p>
-<pre class="hljs"><code>bash Anaconda3-2023.09-0-Linux-x86_64.sh
-</code></pre>
-</li>
-<li>
-<p>After that, create a new environment via <code>conda</code> command in a terminal</p>
-<pre class="hljs"><code>conda create -n your_env_name
-</code></pre>
-</li>
-<li>
-<p>Activate the environment</p>
-<pre class="hljs"><code>conda activate your_env_name
-</code></pre>
-</li>
-<li>
-<p>Then, you can install any packages you need. Let's take PyTorch as an example</p>
-<pre class="hljs"><code>pip install torch torchvision torchaudio
-</code></pre>
-</li>
-</ul>
-<h2 id="5-developing-on-a-server"><a href="#5-developing-on-a-server" style="color:#000000;text-decoration:none">5. Developing on a server</a></h2>
-<ul>
-<li>
-<p>Given a connected VS Code window</p>
-</li>
-<li>
-<p>Let's create a new Python file by pressing <code>Ctrl+N</code> (Windows/Linux) or <code>⌘N</code> (MacOS).</p>
-</li>
-<li>
-<p>Type the following code in the file and save it as <code>test.py</code>:</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> torch
-print(torch.cuda.is_available())
-</code></pre>
-</li>
-<li>
-<p>Select a developing environment:</p>
-<ul>
-<li>Press <code>F1</code> (Windows/Linux) or <code>⇧⌘P</code> (MacOS) to open <code>Command Palette</code>.</li>
-<li>Type <code>Python: Select Interpreter</code> and press <code>Enter</code>.</li>
-<li>Select the environment you want to use and press <code>Enter</code>.</li>
-</ul>
-</li>
-</ul>
-<img src="6.env.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
-<ul>
-<li>In the example above, <code>base</code> environment was selected.</li>
-<li>Run the code:
-<ul>
-<li>
-<p>Use the existing terminal or create a new one via <code>Command Palette</code> &gt; <code>Terminal: Create New Terminal</code>.</p>
-</li>
-<li>
-<p>Enter the following command in the terminal and press <code>Enter</code>:</p>
-<pre class="hljs"><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; python test.py
-</code></pre>
-<p>As shown in the figure below, the output is <code>True</code>, which means at least one GPU is available.</p>
-<blockquote>
-<p><em><code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot;</code> and <code>CUDA_VISIBLE_DEVICES=&quot;1&quot;</code> are important. They tell the system to use GPU #1 to run the code. Please specify the GPU number you want to use accordingly and you should not choose the ones that are being used by others.</em></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<img src="7.run.png" alt="alt text" width="900" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: 60px"/>
-<ul>
-<li>
-<p>For data storage, a user can access the following directories:</p>
-<ol>
-<li><code>/home/your_username</code>: your home directory</li>
-<li><code>/media/.../your_username</code>: your external hard drive</li>
-</ol>
-<p>For the most part, you should store datasets in the external hard drive while keeping your codes in the home directory.</p>
-</li>
-</ul>
-<h2 id="6-other-useful-tips"><a href="#6-other-useful-tips" style="color:#000000;text-decoration:none">6. Other useful tips</a></h2>
-	<ul>
-		<li>With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.</li>
-		<li>In VS Code, most of the tasks can be done via <code>Command Palette</code> and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select <code>Keyboard Shortcuts</code> for more information.</li>
-		<li>In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> is useful for managing Git repositories.</li>
-		<li>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</li>
-<pre class="hljs">
-<code>CUDA_DEVICE_ORDER=&quot;PCI_BUS_ID&quot; CUDA_VISIBLE_DEVICES=&quot;1&quot; nohup python test.py &</code>
-</pre>
-	</ul>
+			<blockquote>
+				<em>For data storage, a user can access the following directories:</em>
+				<ol>
+					<li><code>/home/your_username</code>: your home directory</li>
+					<li><code>/media/.../your_username</code>: your external hard drive</li>
+				</ol>
+				<p>For the most part, you should store datasets in the external hard drive while keeping your codes in the home directory.</p>
+			</blockquote>
+		
+			<blockquote>
+				<em>Sometimes, you may want to run a program in the background so that you can close the terminal without stopping it. To run a program in the background, use the command below with <code>nohup your_program &amp;</code>. Note that all the outputs will be saved in a file called <code>nohup.out</code> in the current directory. To terminate the program, look for its process ID (PID) via <code>ps -ef | grep test.py</code> and kill it with <code>kill -9 PID</code>.</em>
+			</blockquote>
+			<pre>CUDA_DEVICE_ORDER="PCI_BUS_ID" CUDA_VISIBLE_DEVICES="1" nohup python test.py &amp;</pre>
 
 <br /><br /><br /><br /><br />
 </body>
