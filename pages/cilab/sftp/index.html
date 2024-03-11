@@ -402,21 +402,8 @@ code {
 	
 	In the figure below, the left panel is for your local machine and the right panel is for the remote server (workstation/NAS). You can drag and drop files between these two panels to transfer data. To visually inspect the data, you can right-click on a file and select <strong>View/Edit</strong> to open it.
 
-	<ol type="a">
-		<li>NAS Web Interface</li>
-			<blockquote><em>
-				<p>This method provides a user-friendly interface for accessing NAS via a web browser. Also, for now, it is the only way to manage your NAS account.</p>
-			</em></blockquote>
-			<ul>
-				<li>Open a web browser and go to <a href="https://223.195.240.67:1006">https://223.195.240.67:1006</a></li>
-				<li>Enter your username and password.</li>
-				<li>Click <strong>Sign In</strong>.</li>
-				<li>NAS Web Interface main features include:
-				<ul>
-					<li><strong>File Station</strong> is for managing files and folders</li>
-					<li><strong>Personal</strong> contains your account information</li>
-				</ul>
-			</ul>
+<h2>2. sshfs</h2>
+	<p><code>sshfs</code> is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access your NAS via a local folder on your computer/workstation. This is useful for transferring files between your PCs, workstations and NAS. Here are the steps to mount a NAS folder on your machine:</p>
 		<li>File Explorer</li>
 			<blockquote><em>
 				<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
