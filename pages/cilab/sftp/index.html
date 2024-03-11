@@ -410,49 +410,32 @@ code {
 	<img src="2.mainwin.png" alt="alt text" width="900"/>
 
 <h2>2. sshfs</h2>
-	<p><code>sshfs</code> is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access your NAS via a local folder on your computer/workstation. This is useful for transferring files between your PCs, workstations and NAS. Here are the steps to mount a NAS folder on your machine:</p>
-		<li>File Explorer</li>
-			<blockquote><em>
-				<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
-			</em></blockquote>
-			<ul>
-				<li>Open a terminal on your local machine.</li>
-				<li>Run the following command to mount a NAS folder on your machine:
+	<p><code>sshfs</code> is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access a folder on the workstation/NAS via a local folder on your PCs.</p>
+	<p>To mount a workstation/NAS folder on your local machine, follow these steps:
+	<ul>
+		<li>Open a terminal on your local machine.</li>
+		<li>Run the following command to mount a NAS folder on your machine:
 <pre>
-<code>sshfs <strong>your_username</strong>@223.195.240.67:/<strong>your_username</strong>/path_to_a_NAS_folder -p 1004 path_to_your_local_folder</code>
+<code>sshfs <strong>your_username</strong>@workstation_or_NAS_IP_address/<strong>your_username</strong>/remote_folder -p 1004 local_folder</code>
 </pre>
-					<blockquote><em>
-						<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
-					</em></blockquote>
-					<blockquote><em>
-						<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
-					</em></blockquote>
+		<blockquote><em>
+			<p>In addition to your PCs, the above command can also be run on a workstation! This way, your workstation can access a NAS folder or another workstation's folder.</p>
+		</em></blockquote>
+		<blockquote><em>
+			<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
+		</em></blockquote>
+		<blockquote><em>
+			Known issues:
+			<ul>
+				<li><code>fuse: bad mount point … Transport endpoint is not connected</code> when executing <code>sshfs</code>
+				<br />
+				When you encounter this error, you should unmount the folder via <code>fusermount -u local_folder</code> and then mount it again.
+				<li>Cannot open files in NAS folder via File Explorer
+				<br />
+				The files should be opened with "Open With" feature of the File Explorer.
 			</ul>
-		<li>SFTP Clients</li>
-			<blockquote><em>
-				<p>There are many SFTP clients available for you to choose from. Here, we will use FileZilla as an example.</p>
-			</em></blockquote>
-			
-	</ol>
-<h2>3. NAS Folder Structure</h2>
-	<ul>
-		<li><strong>your_username</strong> contains your personal data.</li>
-		<li><strong>PAPER-WORK</strong> is for storing our lab's documents including salary, invoice, certificates, etc.</li>
-		<li><strong>PUBLIC</strong> is for sharing materials from graduated members, this folder is read-only.</li>
+		</em></blockquote>
 	</ul>
-
-<br />
-<br />
-
-<h2>Known Issues</h2>
-	<ul>
-		<li><code>fuse: bad mount point … Transport endpoint is not connected</code> when executing <code>sshfs</code>
-		<br />
-		When you encounter this error, you should unmount the folder via <code>fusermount -u path_to_your_local_folder</code> and then mount it again.
-		<li>Cannot open files in NAS folder via File Explorer
-		<br />
-		The files should be opened with "Open With" feature of the File Explorer.
-
 <br />
 <br />	
 
