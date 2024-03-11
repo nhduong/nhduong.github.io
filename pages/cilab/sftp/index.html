@@ -420,9 +420,9 @@ In the figure below, the left panel is for your local machine and the right pane
 	<p>To mount a workstation/NAS folder on your local machine, follow these steps:
 	<ul>
 		<li>Open a terminal on your local machine.</li>
-		<li>Run the following command to mount a NAS folder on your machine:
+		<li>Run the following command to mount a remote folder on your machine:
 <pre>
-<code>sshfs <strong>your_username</strong>@workstation_or_NAS_IP_address/<strong>your_username</strong>/remote_folder -p 1004 local_folder</code>
+<code>sshfs <strong>your_username</strong>@remote_IP_address/<strong>your_username</strong>/remote_folder -p 1004 local_folder</code>
 </pre>
 		<blockquote><em>
 			<p>In addition to your PCs, the above command can also be run on a workstation! This way, your workstation can access a NAS folder or another workstation's folder.</p>

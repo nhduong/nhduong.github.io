@@ -410,42 +410,8 @@ code {
 					<li><strong>Personal</strong> contains your account information</li>
 				</ul>
 			</ul>
-		<li>File Explorer</li>
-			<blockquote><em>
-				<p>This approach is for accessing NAS via a local folder on your computer/workstation. It is useful for transferring files between your PCs, workstations and NAS. Note that <code>sshfs</code> is required.</p>
-			</em></blockquote>
-			<ul>
-				<li>Open a terminal on your local machine.</li>
-				<li>Run the following command to mount a NAS folder on your machine:
-<pre>
-<code>sshfs <strong>your_username</strong>@223.195.240.67:/<strong>your_username</strong>/path_to_a_NAS_folder -p 1004 path_to_your_local_folder</code>
-</pre>
-					<blockquote><em>
-						<p>In addition to your PCs, the above command can also be run on a workstation! This way, you can access your data from any workstation you are connected to.</p>
-					</em></blockquote>
-					<blockquote><em>
-						<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
-					</em></blockquote>
-			</ul>
 		<li>SFTP Clients</li>
-			<blockquote><em>
-				<p>There are many SFTP clients available for you to choose from. Here, we will use FileZilla as an example.</p>
-			</em></blockquote>
-			<ul>
-				<li>Download and install <a href="https://filezilla-project.org/">FileZilla</a></li>
-				<li>Open FileZilla and go to <strong>File</strong> > <strong>Site Manager</strong> > <strong>New Site</strong></li>
-				<li>Fill in the following information:
-					<ul>
-						<li><strong>Protocol</strong>: SFTP - SSH File Transfer Protocol
-						<li><strong>Host</strong>: 223.195.240.67
-						<li><strong>Port</strong>: 1004
-						<li><strong>Logon Type</strong>: Normal
-						<li><strong>User</strong>: your_username
-						<li><strong>Password</strong>: your_password
-					</ul>
-				</li>
-				<li>Click <strong>Connect</strong></li>
-			</ul>
+			Please refer to <a href="../sftp/index.html">Data Transfer Between Workstations/NAS</a> for more information.
 	</ol>
 <h2>3. NAS Folder Structure</h2>
 	<ul>
@@ -454,17 +420,6 @@ code {
 		<li><strong>PUBLIC</strong> is for sharing materials from graduated members, this folder is read-only.</li>
 	</ul>
 
-<br />
-<br />
-
-<h2>Known Issues</h2>
-	<ul>
-		<li><code>fuse: bad mount point … Transport endpoint is not connected</code> when executing <code>sshfs</code>
-		<br />
-		When you encounter this error, you should unmount the folder via <code>fusermount -u path_to_your_local_folder</code> and then mount it again.
-		<li>Cannot open files in NAS folder via File Explorer
-		<br />
-		The files should be opened with "Open With" feature of the File Explorer.
 
 <br />
 <br />	
