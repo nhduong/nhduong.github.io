@@ -430,11 +430,54 @@ X2Go is a remote desktop application that allows you to control CILab workstatio
 	</ol>
 
 <h2 id="3-connecting-to-a-server"><a href="#3-connecting-to-a-server" style="color:#000000;text-decoration:none">3. Connecting to a server</a></h2>
+	<ol type="a">
+		<li>Open X2Go Client</li>
+		<ul>
+			<li>Linux/Windows: search for <strong>X2Go Client</strong> in the application menu</li>
+			<p>
+				<img src="2.xquartz.png" alt="alt text" width="500"/>
+			</p>
+			<li>macOS: X2Go can be opened via <code>x2goclient</code> similar to Linux and Windows. However, in the next steps, especially when you are using the latest version of macOS, X2Go Client might not be able to connect to XQuartz as shown in the figure above. In this case, you can use the terminal to start X2Go Client by entering the following command:
+				<pre class="hljs"><code>/Applications/Utilities/XQuartz.app/Contents/MacOS/X11 /Applications/x2goclient.app/Contents/MacOS/x2goclient</code></pre>
+				This command will start XQuartz and then X2Go Client in the same environment.
+				<blockquote>
+					<p><em>For the first time, macOS might block the X2Go Client from running. In this case, right-click on <code>/Applications/x2goclient.app</code> and select <strong>Open</strong> to allow it to run. Then close it and run the above command again.</em></p>
+				</blockquote>
+		</ul>
+		<li>Click on the <strong>New Session</strong> button</li>
+		<li>Fill in the following information:
+			<ul>
+				<li>Session name: <strong>any_name_you_like</strong></li>
+				<li>Host: <strong>remote_IP_address</strong></li>
+				<li>Login: <strong>your_username</strong></li></li>
+				<li>SSH port: <strong>1004</strong></li>
+				<li>Session type: <strong>MATE</strong></li>
+				<li>Use RSA/DSA key for ssh connection: your private key file (optional)</li>
+			</ul>
+			<p>
+				<img src="3.session.png" alt="alt text" width="700"/>
+			</p>
+		</li>
+		<li>Click on the <strong>OK</strong> button</li>
+		<li>Click on the session you just created</li>
+		<li>Enter your password in case a private key is not used</li>
+		<li>Click on the <strong>OK</strong> button</li>
+	</ol>
 
+	<p>After a few seconds, you will see the desktop of the workstation you are connecting to.</p>
+
+	<blockquote>
+		<p><em>You might need to enter your password to "unlock".</em></p>
+	</blockquote>
+
+	<p>Now, you can use the workstation as if you are sitting in front of it!</p>
+
+	<p>
+		<img src="4.connect.png" alt="alt text" width="800"/>
+	</p>
 
 <h2 id="4-setting-up-an-environment"><a href="#4-setting-up-an-environment" style="color:#000000;text-decoration:none">4. Setting up and developing on a workstation</a></h2>
-
-	To set up a Python environment and develop on a workstation, please refer to <strong>steps 2 and 3</strong> in <a href="ptenv/index.html">this page</a>.
+	To set up a Python environment and develop on a workstation, please refer to <strong>steps 2 and 3</strong> in <a href="../ptenv/index.html">this page</a>.
 
 <!-- adding a home button -->
 <p><a href="../../index.html">[Home]</a></p>
