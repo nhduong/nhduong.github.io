@@ -378,6 +378,10 @@ code {
 	<p><a href="../index.html">[Home]</a></p>
 
 	<p>CVAT (Computer Vision Annotation Tool) is a free, open-source, interactive web-based tool for annotating images and videos for computer vision tasks. It is a powerful tool for creating high-quality datasets for training and validating machine learning models. This document provides a step-by-step guide on how to host and use CVAT on a CILab workstation.</p>
+
+	<blockquote><em>
+		<p>Sections 0 and 1 are required to be done ONLY ONCE to set up CVAT on a CILab workstation. After that, you can access CVAT by following Section 2.</p>
+	</em></blockquote>
 <br />
 
 <h2>0. Permission Request</h2>
@@ -388,28 +392,40 @@ code {
 	<p>This part is based on the official <a href="https://docs.cvat.ai/docs/administration/basics/installation/">CVAT Installation Guide</a> with some modifications for CILab workstations.</p>
 </em></blockquote>
 	<p>Open a terminal on a CILab workstation and run the following commands:</p>
+	<ul>
 		<li>Clone CVAT source code from the GitHub repository with Git</li>
 <pre>
 <code>git clone https://github.com/cvat-ai/cvat</code>
 <code>cd cvat</code>
 </pre>
-		<blockquote><em>
-			<p>In addition to your PCs, the above command can also be run on a workstation! This way, your workstation can access a NAS folder or another workstation's folder.</p>
-		</em></blockquote>
-		<blockquote><em>
-			<p>You will need to execute the above command every time you restart your PCs or workstations.</p>
-		</em></blockquote>
-		<blockquote><em>
-			Known issues:
-			<ul>
-				<li><code>fuse: bad mount point … Transport endpoint is not connected</code> when executing <code>sshfs</code>
-				<br />
-				When you encounter this error, you should unmount the folder via <code>fusermount -u local_folder</code> and then mount it again.
-				<li>Cannot open files in NAS folder via File Explorer
-				<br />
-				The files should be opened with "Open With" feature of the File Explorer.
-			</ul>
-		</em></blockquote>
+		<li>Run CVAT. For the first time, it will take some time to download required packages</li>
+<pre>
+<code>export ALLOWED_HOSTS="*" && docker compose up -d</code>
+</pre>
+		<li>Create a superuser account for the CVAT web interface</li>
+<pre>
+<code>docker exec -it cvat_server bash -ic 'python3 ~/manage.py createsuperuser'</code>
+</pre>
+		<li>You will be asked to enter a username, email, and password for the superuser account</li>
+	</ul>
+
+<blockquote><em>You might want to shutdown CVAT when the annotation task is done to save resources. To do so, run the following command:
+<pre>
+<code>docker compose down</code>
+</pre>
+</em></blockquote>
+
+<h2>2. Accessing CVAT</h2>
+	<ul>
+		<li>Making sure CVAT is running</li>
+		<li>Access CVAT via a web browser:
+		<p>Since CILab workstations are not directly accessible from the internet, you need to use an <a href="https://www.ssh.com/academy/ssh/tunneling">SSH tunnel</a> to access CVAT. Follow these steps:</p>
+		<ul>
+			<li>Open a terminal on your local machine and run the following command to create an SSH tunnel</li>
+<pre>
+<code>ssh -L 60080:localhost:60080 username@cilab_workstation_ip -p 1004</code>
+</pre>
+		In general, we are going to host CVAT on a CILab workstation via port 60080. However, you cannot access this port directly. By creating an SSH tunnel, you can access port 60080 on a CILab workstation via port 60080 on your local machine.
 	</ul>
 	
 <!-- adding a home button -->
