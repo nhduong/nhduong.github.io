@@ -409,7 +409,7 @@ code {
 <p>
 <img src="cvat_port.png" alt="alt text" width="900"/>
 </p>
-		<p>Find the line <code>8080:8080</code> by pressing <code>Ctrl + W</code> and replace it with <code>60080:8080</code>. Save and exit the editor by pressing <code>Ctrl + X</code>, then <code>Y</code>, and <code>Enter</code>.</p>
+		<p>Find the line <code>8080:8080</code> by pressing <code>Ctrl + W</code> and replace it with <code>XXXXX:8080</code>. Save and exit the editor by pressing <code>Ctrl + X</code>, then <code>Y</code>, and <code>Enter</code>. Here, <code>XXXXX</code> is the port number you want to use to access CVAT. Make sure that the port number is not in use by other services and other users.</p>
 		<li>Run CVAT. For the first time, it will take some time to download required packages</li>
 <pre>
 <code>export ALLOWED_HOSTS="*" && docker compose up -d</code>
@@ -435,10 +435,10 @@ code {
 		<ul>
 			<li>Open a terminal on your local machine and run the following command to create an SSH tunnel</li>
 <pre>
-<code>ssh -L 60080:localhost:60080 username@cilab_workstation_ip -p 1004</code>
+<code>ssh -L XXXXX:localhost:XXXXX username@cilab_workstation_ip -p 1004</code>
 </pre>
-			In general, we are going to host CVAT on a CILab workstation via port 60080. However, you cannot access this port directly. By creating an SSH tunnel, you can access port 60080 on a CILab workstation via port 60080 on your local machine.
-			<li>Open a web browser (Chrome is recommended) and go to <a href="http://localhost:60080/">http://localhost:60080/</a></li>
+			In general, we are going to host CVAT on a CILab workstation via port XXXXX. However, you cannot access this port directly. By creating an SSH tunnel, you can access port XXXXX on a CILab workstation via port XXXXX on your local machine.
+			<li>Open a web browser (Chrome is recommended) and go to <a href="http://localhost:XXXXX/">http://localhost:XXXXX/</a></li>
 			<li>Log in with the superuser account you created in Section 1</li>
 	</ul>
 	
