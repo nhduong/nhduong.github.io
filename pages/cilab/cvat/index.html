@@ -440,8 +440,34 @@ code {
 			In general, we are going to host CVAT on a CILab workstation via port XXXXX. However, you cannot access this port directly. By creating an SSH tunnel, you can access port XXXXX on a CILab workstation via port XXXXX on your local machine.
 			<li>Open a web browser (Chrome is recommended) and go to <a href="http://localhost:XXXXX/">http://localhost:XXXXX/</a></li>
 			<li>Log in with the superuser account you created in Section 1</li>
+		</ul>
 	</ul>
-	
+
+<h2>3. Using CVAT</h2>
+	<ul>
+		<li>You might want to create new users so that they can access your CVAT server and help you annotate data. To do so, follow these steps:</li>
+		<ul>
+			<li>Click on the user icon on the top right corner of the CVAT web interface</li>
+			<li>Click on the "Admin page" button</li>
+			<li>Click on the "+ Add" button next to the "Users" section</li>
+			<li>Fill in the required information and click on the "SAVE" button</li>
+		</ul>
+		<li>To create a new task and assign it to users, follow these steps:</li>
+		<ul>
+			<li>Click on the "Tasks" button on the top left corner of the CVAT web interface</li>
+			<li>Click on the blue "+" button on the top right corner and select "Create a new task"</li>
+			<li>Fill in the required information including:<br>
+				- Name: the name of the task<br>
+				- Labels: the labels for annotation<br>
+				- Files: the images or videos to be annotated<br>
+				- Segment size: the number of data per users. For example, if you have 200 images and 2 users, you can set the segment size to 50 so that each user will annotate 100 images</li>
+			<li>Click on the "Submit & Open" button</li>
+			<li>For the above scenario, 2 jobs will be created in the task. You can assign each job to a user by selecting them from the "Assignee" dropdown list</li>
+<img src="cvat_jobs.png" alt="alt text" width="900"/>
+			<li>For the assigned users, they can start annotating by following Section 2 above and remember to save the progress frequently</li>
+			<li>For the task owner, you can monitor the progress, backup, and export the annotations to a specific format via "Actions" button</li>
+		</ul>
+	</ul>
 <!-- adding a home button -->
 <p><a href="../index.html">[Home]</a></p>
 <br />
