@@ -398,6 +398,11 @@ code {
 <code>git clone https://github.com/cvat-ai/cvat</code>
 <code>cd cvat</code>
 </pre>
+		<li>Modify the port number for the CVAT web interface</li>
+<pre>
+<code>nano docker-compose.yml</code>
+</pre>
+		<p>Find the line <code>8080:8080</code> by pressing <code>Ctrl + W</code> and replace it with <code>60080:8080</code>. Save and exit the editor by pressing <code>Ctrl + X</code>, then <code>Y</code>, and <code>Enter</code>.</p>
 		<li>Run CVAT. For the first time, it will take some time to download required packages</li>
 <pre>
 <code>export ALLOWED_HOSTS="*" && docker compose up -d</code>
@@ -419,13 +424,15 @@ code {
 	<ul>
 		<li>Making sure CVAT is running</li>
 		<li>Access CVAT via a web browser:
-		<p>Since CILab workstations are not directly accessible from the internet, you need to use an <a href="https://www.ssh.com/academy/ssh/tunneling">SSH tunnel</a> to access CVAT. Follow these steps:</p>
+		<p>Since CILab workstations are not directly accessible other than port 1004 (SSH), you need to use an <a href="https://www.ssh.com/academy/ssh/tunneling">SSH tunnel</a> to access CVAT. Follow these steps:</p>
 		<ul>
 			<li>Open a terminal on your local machine and run the following command to create an SSH tunnel</li>
 <pre>
 <code>ssh -L 60080:localhost:60080 username@cilab_workstation_ip -p 1004</code>
 </pre>
-		In general, we are going to host CVAT on a CILab workstation via port 60080. However, you cannot access this port directly. By creating an SSH tunnel, you can access port 60080 on a CILab workstation via port 60080 on your local machine.
+			In general, we are going to host CVAT on a CILab workstation via port 60080. However, you cannot access this port directly. By creating an SSH tunnel, you can access port 60080 on a CILab workstation via port 60080 on your local machine.
+			<li>Open a web browser (Chrome is recommended) and go to <a href="http://localhost:60080/">http://localhost:60080/</a></li>
+			<li>Log in with the superuser account you created in Section 1</li>
 	</ul>
 	
 <!-- adding a home button -->
