@@ -423,7 +423,7 @@ code {
 
 <h2>2. Accessing CVAT</h2>
 	<ul>
-		<li>Making sure CVAT is running</li>
+		<li>Make sure CVAT is running</li>
 		<li>Access CVAT via a web browser:
 		<p>Since CILab workstations are not directly accessible other than port 1004 (SSH), you need to use an <a href="https://www.ssh.com/academy/ssh/tunneling">SSH tunnel</a> to access CVAT. Follow these steps:</p>
 		<ul>
@@ -458,19 +458,19 @@ code {
 				- Name: the name of the task<br>
 				- Labels: the labels for annotation<br>
 				- Files: the images or videos to be annotated<br>
-				- Segment size: the number of data per users. For example, if you have 200 images and 2 users, you can set the segment size to 100 so that each user will annotate 100 images without overlapping<br>
+				- Segment size: the number of data per user. For example, if you have 200 images and 2 users, you can set the segment size to 100 so that each user will annotate 100 images without overlapping<br>
 			<li>Click on the "Submit & Open" button</li>
-			<li>For the above scenario, 2 jobs will be created in the task. You can assign each job to a user by selecting them from the "Assignee" dropdown list</li>
+			<li>For the above scenario, 2 jobs will be created in the task. Now you can assign each job to a user by selecting them from the "Assignee" dropdown list</li>
 <img src="cvat_jobs.png" alt="alt text" width="900"/>
 			<li>For the assigned users, they can start annotating by following Section 2 above and remember to save the progress frequently</li>
-			<li>For the task owner, you can monitor the progress, backup, and export the annotations to a specific format via "Actions" button</li>
+			<li>For the task owner, you can monitor the progress, backup, and export annotations to a specific format via "Actions" button</li>
 			<blockquote><em>
-				<p>Although CVAT is particularly designed for annotating classification, detection, and segmentation tasks, it can be used for other tasks such as voting/GT selection as well. For example, you can create a task to vote for the "best" image among a set of images of the same input, which can be viewed as a classification task.</p>
+				<p>Although CVAT is particularly designed for classification, detection, and segmentation annotations, it can be used for other tasks such as voting/GT selection as well. For example, you can create a task to vote for the "best" image among a set of outputs of the same input, which also can be viewed as a classification task.</p>
 			</em></blockquote>
 		</ul>
 	</ul>
 	
-<blockquote><em>You might want to shutdown CVAT when the annotation task is done to save resources. To do so, run the following command:
+<blockquote><em>You might want to shutdown CVAT when the annotation task is done to save resources. To do so, run the following command in the CVAT directory on the CILab workstation:
 <pre>
 <code>docker compose down</code>
 </pre>
