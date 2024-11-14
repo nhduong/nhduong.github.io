@@ -418,7 +418,7 @@ In the figure below, the left panel is for your local machine and the right pane
 </p>
 
 <h2>2. sshfs</h2>
-	<p><code>sshfs</code> is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access a folder on the workstation/NAS via a local folder on your PCs.</p>
+	<p><code>sshfs</code> is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access a folder on the workstation/NAS via a local folder on your PCs. To install sshfs, follow the instructions for <a href="https://github.com/libfuse/sshfs">Linux</a>, <a href="https://github.com/winfsp/sshfs-win">Windows</a>, and <a href="https://osxfuse.github.io/">macOS</a>.</p>
 	<p>To mount a workstation/NAS folder on your local machine, follow these steps:
 	<ul>
 		<li>Open a terminal on your local machine.</li>
@@ -443,6 +443,52 @@ In the figure below, the left panel is for your local machine and the right pane
 				The files should be opened with "Open With" feature of the File Explorer.
 			</ul>
 		</em></blockquote>
+	</ul>
+
+<h2>3. rclone</h2>
+<p><code>rclone</code> is another command line based software that allows you to transfer data between your PCs, workstations and NAS. It supports various cloud storage providers, including Google Drive, Dropbox, etc. To set up <code>rclone</code> on a local machine or a workstation, follow these steps:
+	<ul>
+		<li>Download <a href="https://rclone.org/downloads/">rclone-version-os.zip</a> based on your operating system
+<p>
+	<img src="3.rclone_download.png" alt="alt text" width="900"/>
+</p>
+		<li>Unzip the downloaded file to a folder, for example, <code>/home/user/rclone</code>
+		<li>Run the following command to set up a connection to a workstation/NAS:
+<pre>
+<code>cd /home/user/rclone
+./rclone config</code>
+</pre>
+		<li>Follow the instructions to set up a new connection:
+			<ul>
+				<li>Enter <strong>n</strong> to create a new remote
+				<li>Enter the following information:
+					<ul>
+						<li><strong>name></strong> type any name for the connection, for example, <strong>nas</strong>
+						<li><strong>storage></strong> type <strong>sftp</strong> for secure file transfer protocol
+						<li><strong>host></strong> type the workstation/NAS's IP address
+						<li><strong>user></strong> type your username
+						<li><strong>port></strong> type <strong>1004</strong>
+						<li>You will be asked to enter your password <strong>SSH password, leave blank to use ssh-agent...</strong>. Type <strong>y</strong> and press <strong>Enter</strong>. After that, enter your password and press <strong>Enter</strong>
+						<li>For the rest of the questions, you can press <strong>Enter</strong> to use the default values until you see the main menu again
+
+<p>
+	<img src="4.rclone_main.png" alt="alt text" width="900"/>
+</p>
+
+				</ul>
+			</ul>
+		</li>
+		<li>From the figure above, you can see that the connection <strong>nas</strong> has been successfully set up. Let's test the connection by running the following command:
+<pre>
+<code>./rclone lsd nas:/</code>
+</pre>
+<p>
+	<img src="5.rclone_lsd.png" alt="alt text" width="900"/>
+</p>
+		<li>If you see a list of folders on the workstation/NAS, the connection is successful. You can now transfer data between your PCs, workstations and NAS using <code>rclone</code> with the following command:
+<pre>
+<code>./rclone copy local_folder nas:/remote_folder</code>
+</pre>
 	</ul>
 	
 <!-- adding a home button -->
