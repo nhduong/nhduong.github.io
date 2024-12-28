@@ -7,7 +7,7 @@ summary: "publications"
 
 Go to [:link: Google Scholar](https://scholar.google.com/citations?user=J8_8X70AAAAJ&hl=en) for a complete list of publications.
 
-<img src="https://img.shields.io/badge/SPL-rgb(250,100,50)?style=for-the-badge" alt="SPL" style="vertical-align: middle; display: inline;"> **H.-D. Nguyen**, S.-H. Lee, and C. Lee, "Multiscale coarse-to-fine guided screenshot demoiréing," *Signal Process. Lett.*, vol. 30, pp. 898-902, Jul. 2023. [:page_facing_up:](https://ieeexplore.ieee.org/abstract/document/10184447) [:hash:](https://nhduong.github.io/guided_demoireing_net/)
+<img src="https://img.shields.io/badge/SPL-rgb(250,100,50)?style=for-the-badge" alt="SPL" style="vertical-align: middle; display: inline;"> **H. D. Nguyen**, S.-H. Lee, and C. Lee, "Multiscale coarse-to-fine guided screenshot demoiréing," *Signal Process. Lett.*, vol. 30, pp. 898-902, Jul. 2023. [:page_facing_up:](https://ieeexplore.ieee.org/abstract/document/10184447) [:hash:](https://nhduong.github.io/guided_demoireing_net/)
 
 <img src="https://img.shields.io/badge/ICIP-rgb(151,202,0)?style=for-the-badge" alt="ICIP" style="vertical-align: middle; display: inline;"> **D. H. Nguyen** and C. Lee, "A contrastive learning approach for screenshot demoiréing," in *Proc. Int. Conf. Image Process.*, Oct. 2023, pp. 1210-1214. [:page_facing_up:](https://ieeexplore.ieee.org/abstract/document/9412463)
 
