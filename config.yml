@@ -55,7 +55,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Duong Nguyen's personal website"
+  description: "Duong Nguyen"
   author: Duong Nguyen (based on PaperMod)
   # author: ["Me", "You"] # multiple authors
 
@@ -76,7 +76,7 @@ params:
   images: ["images/papermod-cover.png"]
 
   profileMode:
-    enabled: false
+    enabled: true
     title: "About Me"
     imageUrl: "#"
     imageTitle: my image
@@ -89,7 +89,7 @@ params:
         url: https://scholar.google.com/citations?user=J8_8X70AAAAJ&hl=en
 
   homeInfoParams:
-    Title: "Duong's personal website!"
+    Title: "Duong Nguyen"
     Content: >
       👋 Welcome to demo page of Hugo's theme PaperMod!
 
