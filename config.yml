@@ -35,10 +35,13 @@ languages:
           weight: 5
         - name: Publications
           url: publications
-          weight: 6
+          weight: 7
         - name: Posts
           url: posts
-          weight: 7
+          weight: 8
+        - name: Archive
+          url: archives
+          weight: 9
         # - name: Search
         #   url: search/
         #   weight: 10
