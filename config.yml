@@ -98,10 +98,10 @@ params:
       I'm a Ph.D. student at Dongguk University under the guidance of [Prof. Chul Lee](http://cilab.dongguk.edu/). My main interest is machine learning, particularly questions related to deep learning for image processing and representation learning.
 
   socialIcons:
-    - name: GitHub
+    - name: github
       title: Follow me on GitHub
       url: "https://github.com/nhduong/"
-    - name: Google Scholar
+    - name: google-scholar
       title: Follow me on Google Scholar
       url: "https://scholar.google.com/citations?user=J8_8X70AAAAJ&hl=en"
     # - name: X
