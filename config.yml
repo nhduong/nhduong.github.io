@@ -22,6 +22,7 @@ minify:
 languages:
   en:
     languageName: "English"
+    languageCode: "en"  # Add this line to define the language code
     weight: 1
     taxonomies:
       category: categories
@@ -61,7 +62,7 @@ params:
 
   defaultTheme: "light"
   # disableThemeToggle: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowReadingTime: true
   # disableSpecial1stPost: true
   displayFullLangName: true
