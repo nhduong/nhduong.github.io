@@ -14,7 +14,7 @@ on:
       hugoVersion:
         description: "Hugo Version"
         required: false
-        default: "0.112.4"
+        default: "0.125.7"
 
 # Allow one concurrent deployment
 concurrency:
