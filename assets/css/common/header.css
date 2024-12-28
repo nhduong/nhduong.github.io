@@ -2,10 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
     margin-inline-start: auto;
     margin-inline-end: auto;
     line-height: var(--header-height);
-    background: var(--code-bg);
 }
 
 .nav a {
@@ -23,8 +23,8 @@
 }
 
 .logo a {
-    font-size: var(--headersize);
-    font-weight: var(--semibold);
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .logo a img, .logo a svg {
@@ -37,7 +37,7 @@
 }
 
 button#theme-toggle {
-    font-size: 20px;
+    font-size: 26px;
     margin: auto 4px;
 }
 
@@ -62,12 +62,12 @@ body:not(.dark) #sun {
 }
 
 #menu a {
-    font-size: var(--headersize);
-    font-weight: 400;
+    font-size: 16px;
 }
 
 #menu .active {
-    border-bottom: 2px solid var(--darkcolor);
+    font-weight: 500;
+    border-bottom: 2px solid currentColor;
 }
 
 .lang-switch li,

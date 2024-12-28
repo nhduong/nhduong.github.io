@@ -4,8 +4,8 @@
 }
 
 .post-title {
-    margin-bottom: 20px;
-    font-size: 36px;
+    margin-bottom: 2px;
+    font-size: 40px;
 }
 
 .post-description {
@@ -16,7 +16,9 @@
 .post-meta,
 .breadcrumbs {
     color: var(--secondary);
-    font-size: 15px;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .post-meta .i18n_list li {
@@ -26,10 +28,12 @@
     box-shadow: 0 1px 0 var(--secondary);
 }
 
+.breadcrumbs a {
+    font-size: 16px;
+}
+
 .post-content {
     color: var(--content);
-    line-height: var(--lineheight);
-    font-size: var(--textsize);
 }
 
 .post-content h3,
@@ -46,37 +50,30 @@
 
 .post-content h2 {
     margin: 32px auto 24px;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .post-content h3 {
-    font-size: 19px;    
+    font-size: 24px;
 }
 
 .post-content h4 {
-    font-size: 15px;    
-    font-weight: var(--semibold);
-    text-transform: uppercase;
-    color: var(--gray);
+    font-size: 16px;
 }
 
 .post-content h5 {
     font-size: 14px;
-    font-weight: var(--semibold);
-    text-transform: uppercase;
-    color: var(--gray);
 }
 
 .post-content h6 {
-    font-size: var(--footersize);
-    color: var(--secondary);
+    font-size: 12px;
 }
 
 .post-content a,
-.post-meta a,
 .toc a:hover {
-    box-shadow: 0 2px 0 var(--darkcolor);
-    color: currentColor; 
+    box-shadow: 0 1px 0;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .post-content a code {
@@ -100,15 +97,10 @@
 .post-content ol,
 .post-content ul {
     padding-inline-start: 20px;
-    margin-left: var(--marginleft); 
 }
 
 .post-content li {
     margin-top: 5px;
-}
-
-.post-content li::marker {
-    color: var(--tertiary);
 }
 
 .post-content li p {
@@ -145,17 +137,12 @@
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
     min-width: 80px;
     padding: 8px 5px;
-    line-height: var(--lineheight);
+    line-height: 1.5;
     border-bottom: 1px solid var(--border);
 }
 
 .post-content table th {
     text-align: start;
-    font-size: 14px;
-    font-weight: var(--semibold);
-    text-transform: uppercase;
-    color: var(--gray);
-    border-bottom: 2px solid var(--tertiary);
 }
 
 .post-content table:not(.highlighttable) td code:only-child {
@@ -206,7 +193,7 @@
     margin: auto 4px;
     padding: 4px 6px;
     font-size: 0.78em;
-    line-height: var(--lineheight);
+    line-height: 1.5;
     background: var(--code-bg);
     border-radius: 2px;
 }
@@ -215,7 +202,8 @@
     display: grid;
     margin: auto 0;
     padding: 10px;
-    color: var(--secondary);
+    color: rgb(213, 213, 214);
+    background: var(--code-block-bg) !important;
     border-radius: var(--radius);
     overflow-x: auto;
     word-break: break-all;
@@ -224,7 +212,7 @@
 .post-content blockquote {
     margin: 20px 0;
     padding: 0 14px;
-    border-inline-start: 4px solid var(--tertiary);
+    border-inline-start: 3px solid var(--primary);
 }
 
 .post-content hr {
@@ -265,15 +253,11 @@
 }
 
 .toc {
-    margin: 0 2px 20px 2px;
+    margin: 0 2px 40px 2px;
     border: 1px solid var(--border);
     background: var(--code-bg);
     border-radius: var(--radius);
     padding: 0.4em;
-}
-
-.toc li::marker {
-    color: var(--tertiary);
 }
 
 .dark .toc {
@@ -292,16 +276,13 @@
 
 .toc .details {
     display: inline;
-    font-weight: var(--semibold);
-    text-transform: uppercase;
-    font-size: 15px;
+    font-weight: 500;
 }
 
 .toc .inner {
     margin: 5px 20px 0;
     padding: 0 10px;
     opacity: 0.9;
-    font-size: 16px;
 }
 
 .toc li ul {
@@ -313,7 +294,7 @@
 }
 
 .post-footer {
-    margin-top: 60px;
+    margin-top: 56px;
 }
 
 .post-footer>* {
@@ -326,7 +307,6 @@
     gap: 10px;
 }
 
-
 .post-tags li {
     display: inline-block;
 }
@@ -336,23 +316,21 @@
 .paginav {
     border-radius: var(--radius);
     background: var(--code-bg);
+    border: 1px solid var(--border);
 }
 
 .post-tags a {
     display: block;
-    padding: 0 10px;
+    padding: 0 14px;
     color: var(--secondary);
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 34px;
     background: var(--code-bg);
 }
 
-.post-tags a:hover {
-    background: var(--lightcolor);
-}
-
+.post-tags a:hover,
 .paginav a:hover {
-    background: var(--lightcolor);
+    background: var(--border);
 }
 
 .share-buttons {
@@ -368,7 +346,6 @@
     display: inline-flex;
 }
 
-
 .share-buttons a:not(:last-of-type) {
     margin-inline-end: 12px;
 }
@@ -380,24 +357,21 @@ h4:hover .anchor,
 h5:hover .anchor,
 h6:hover .anchor {
     display: inline-flex;
-    color: var(--darkcolor);
-    margin-inline-start: 10px;
-    font-weight: 700;
+    color: var(--secondary);
+    margin-inline-start: 8px;
+    font-weight: 500;
     user-select: none;
-    box-shadow: 0 0px 0 var(--darkcolor);
 }
 
 .paginav {
     display: flex;
-    line-height: var(--lineheight);
-    font-size: var(--footersize);
+    line-height: 30px;
 }
 
 .paginav a {
-    padding-inline-start: 15px;
-    padding-inline-end: 15px;
+    padding-inline-start: 14px;
+    padding-inline-end: 14px;
     border-radius: var(--radius);
-    color: var(--secondary);
 }
 
 .paginav .title {
@@ -412,6 +386,9 @@ h6:hover .anchor {
     width: 50%;
 }
 
+.paginav span:hover:not(.title) {
+    box-shadow: 0 1px 0;
+}
 
 .paginav .next {
     margin-inline-start: auto;
@@ -429,12 +406,4 @@ h1>a>svg {
 img.in-text {
     display: inline;
     margin: auto;
-}
-
-a[href^="#fn:"], a[href^="#fnref:"] {
-     box-shadow: 0 0px 0 var(--darkcolor);
-}
-
-a[href^="#fn:"]:hover, a[href^="#fnref:"]:hover {
-    color: var(--darkcolor);
 }
