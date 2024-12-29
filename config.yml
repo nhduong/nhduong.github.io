@@ -81,8 +81,9 @@ params:
 
   profileMode:
     enabled: true
-    title: "👋 Welcome!"
-    imageUrl: "D:/downloads/nhduong.github.io/assets/images/typing_squared.gif"
+    title: "Duong Nguyen"
+    subtitle: "I'm a Ph.D. student at Dongguk University under the guidance of [Prof. Chul Lee](http://cilab.dongguk.edu/). My main interest is machine learning, particularly questions related to deep learning for image processing and representation learning."
+    imageUrl: "https://raw.githubusercontent.com/nhduong/nhduong.github.io/refs/heads/master/assets/images/typing_squared.gif"
     # imageTitle: my image
     imageWidth: 270
     imageHeight: 270
