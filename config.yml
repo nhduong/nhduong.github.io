@@ -30,7 +30,7 @@ languages:
       series: series
     menu:
       main:
-        - name: About
+        - name: About Me
           url: about
           weight: 5
         - name: Publications
@@ -80,20 +80,20 @@ params:
   images: ["images/papermod-cover.png"]
 
   profileMode:
-    enabled: false
-    title: "About Me"
-    imageUrl: "#"
-    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
-    buttons:
-      - name: "GitHub"
-        url: https://github.com/nhduong/
-      - name: "Google Scholar"
-        url: https://scholar.google.com/citations?user=J8_8X70AAAAJ&hl=en
+    enabled: true
+    title: "👋 Welcome!"
+    imageUrl: "D:/downloads/nhduong.github.io/assets/images/typing_squared.gif"
+    # imageTitle: my image
+    imageWidth: 270
+    imageHeight: 270
+    # buttons:
+    #   - name: "github"
+    #     url: https://github.com/nhduong/
+    #   - name: "google-scholar"
+    #     url: https://scholar.google.com/citations?user=J8_8X70AAAAJ&hl=en
 
   homeInfoParams:
-    Title: "👋 Welcome to my page!"
+    Title: "👋 Welcome!"
     Content: >
       I'm a Ph.D. student at Dongguk University under the guidance of [Prof. Chul Lee](http://cilab.dongguk.edu/). My main interest is machine learning, particularly questions related to deep learning for image processing and representation learning.
 
