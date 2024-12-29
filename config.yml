@@ -60,7 +60,7 @@ outputs:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Duong Nguyen"
-  author: Duong Nguyen (based on PaperMod)
+  author: Duong Nguyen
   # author: ["Me", "You"] # multiple authors
 
   defaultTheme: "light"
@@ -82,11 +82,11 @@ params:
   profileMode:
     enabled: true
     title: "Duong Nguyen"
-    subtitle: "I'm a Ph.D. student at Dongguk University under the guidance of [Prof. Chul Lee](http://cilab.dongguk.edu/). My main interest is machine learning, particularly questions related to deep learning for image processing and representation learning."
+    subtitle: "I'm a Ph.D. student at Dongguk University under the guidance of [:link:Prof. Chul Lee](http://cilab.dongguk.edu/). My main interest is machine learning, particularly questions related to deep learning for image processing and representation learning."
     imageUrl: "https://raw.githubusercontent.com/nhduong/nhduong.github.io/refs/heads/master/assets/images/typing_squared.gif"
     # imageTitle: my image
-    imageWidth: 270
-    imageHeight: 270
+    imageWidth: 200
+    imageHeight: 200
     # buttons:
     #   - name: "github"
     #     url: https://github.com/nhduong/
