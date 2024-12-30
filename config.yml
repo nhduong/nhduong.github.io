@@ -36,8 +36,8 @@ languages:
         - name: Publications
           url: publications
           weight: 7
-        - name: Posts
-          url: posts
+        - name: CILab
+          url: cilab
           weight: 8
         - name: Archive
           url: archives
