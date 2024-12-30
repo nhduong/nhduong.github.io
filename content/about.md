@@ -1,7 +1,7 @@
 ---
 author: [""]
 title: "About Me"
-date: "2024-10-28"
+# date: "2024-10-28"
 # description: "A brief introduction to myself"
 # tags: ["markdown", "shortcodes", "privacy"]
 ShowToc: False
