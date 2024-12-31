@@ -9,6 +9,7 @@ title: "CILab@Dongguk University"
 # series: ["Themes Guide"]
 ShowToc: true
 # TocOpen: true
+url: /pages/cilab
 ---
 
 ### Inline Code

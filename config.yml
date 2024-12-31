@@ -36,10 +36,10 @@ languages:
         - name: Publications
           url: publications
           weight: 7
-        - name: CILab
+        - name: CILab Docs
           url: cilab
           weight: 8
-        - name: Archive
+        - name: Posts
           url: archives
           weight: 9
         # - name: Search
