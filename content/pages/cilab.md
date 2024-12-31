@@ -1,6 +1,6 @@
 ---
 author: [""]
-title: "CILab@Dongguk University"
+title: "CILab Documentation"
 # date: "2019-03-10"
 # description: "Sample article showcasing basic code syntax and formatting for HTML elements."
 # summary: "Sample article showcasing basic code syntax and formatting for HTML elements."
@@ -8,147 +8,37 @@ title: "CILab@Dongguk University"
 # categories: ["themes", "syntax"]
 # series: ["Themes Guide"]
 ShowToc: true
-# TocOpen: true
-url: /pages/cilab
+TocOpen: true
 ---
 
-### Inline Code
+## Network Attached Storage (NAS) 📀
 
-`This is Inline Code`
+> What is NAS for?
+> - Storing/sharing materials for research, e.g., datasets, codes, etc.
+> - Being linked to workstations for remote development.
 
-### Only `pre`
+<mark>DO NOT</mark> keep any sensitive information on NAS!
 
-<pre>
-This is pre text
-</pre>
+1. **Gaining Access To NAS**
+- Ask the administrator for a username and a password
+- Change the password after the first login with web interface at [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
+> You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website. However, with an unsecured connection, your data, especially your user name and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate.
+1. **Connecting To NAS**
+   - NAS Web Interface
+     - Open a web browser and go to [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
+     - Enter your username and password
+     - Click [Sign In]
+     - NAS Web Interface main features include:
+       - [File Station] is for managing files and folders
+       - [Personal] contains your account information
+   - SFTP Clients
+2. **NAS Folder Structure**
 
-### Code block with backticks
+## GPU Workstations
+### 1. Using Terminal 💪
+### 2. Using VSCode 🚀
+### 3. With X2Go 🚂
 
-```{hl_lines=[2,8]}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-    <meta
-      name="description"
-      content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-    />
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
+## Data Transfer Between Workstations/NAS 🚚
 
-### Code block with backticks and language specified
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-    <meta
-      name="description"
-      content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-    />
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-
-### Code block with backticks and language specified with line numbers
-
-```html {linenos=true}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-    <meta
-      name="description"
-      content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-    />
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-
-### Code block with line numbers and <mark>highlighted</mark> lines
-
-- PaperMod supports `linenos=true` or `linenos=table`
-
-```html {linenos=true,hl_lines=[2,8]}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-    <meta
-      name="description"
-      content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-    />
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-
-- <del>With `linenos=inline` line <mark>**might not** get highlighted</mark> properly.<del>
-- This issue is fixed with [045c084](https://github.com/adityatelange/hugo-PaperMod/commit/045c08496d61b1b3f9c79e69e7d3d243a526d8f3)
-
-```html {linenos=inline,hl_lines=[2,8]}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-    <meta
-      name="description"
-      content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-    />
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-
-### Code block indented with four spaces
-
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
-
-### Code block with Hugo's internal highlight shortcode
-
-{{< highlight html >}}
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
-
-### Github Gist
-
-{{< gist adityatelange 376cd56ee2c94aaa2e8b93200f2ba8b5 >}}
+## Data Annotation With CVAT.ai ✏️
