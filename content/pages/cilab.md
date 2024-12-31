@@ -31,8 +31,12 @@ TocOpen: true
      - NAS Web Interface main features include:
        - [File Station] is for managing files and folders
        - [Personal] contains your account information
-   - SFTP Clients
+   - SFTP Clients  
+        Please refer to [Data Transfer Between Workstations/NAS](./cilab/#data-transfer-between-workstationsnas-) for more information
 2. **NAS Folder Structure**
+    - **your_username** contains your personal data.
+    - **PAPER-WORK** is for storing our lab's documents.
+    - **PUBLIC** is for sharing materials from graduated members, this folder is read-only.
 
 ## GPU Workstations
 ### 1. Using Terminal 💪
