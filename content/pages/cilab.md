@@ -42,7 +42,11 @@ TocOpen: true
 ---
 ## GPU Workstations
 ### Reservation 📅
-Head to the [CILAB_Shared_GPUs_Sheet](https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA) to reserve the GPU(s) you need. For more information, please send a message to our KakaoTalk group.
+Head to the [CILAB_Shared_GPUs_Sheet](https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA) to reserve the GPU(s) you need. In summary,
+- <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
+- <mark>Cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> anymore.  
+
+For more information, please ask questions in our KakaoTalk group.
 ### Connecting To Workstations 🖥️
 Let's start with the most common way to connect to a workstation, which is using SSH with a terminal.
    - Ask the administrator for a username and a password
@@ -94,9 +98,9 @@ For the most part, you will be working on GPU workstations with Python based pro
 ### Interacting With Workstations 🖥️
 <!-- #### Terminal 💪 -->
 <!-- #### Using VSCode 🚀 -->
-VSCode is an **All-in-One** powerful editor that runs on your local machine. It can be used to connect to a remote workstation for develpment. It comes with a lot of useful features via extensions. This guide will show you how to set up and use VSCode to connect to a CILab workstation.
-- Download and install [VSCode](https://code.visualstudio.com/download) on your **local machine** (NOT the workstation!)
-- Remember to make a reservation before using a workstation. And, the reservations **MUST** be canceled if you are not using the workstations anymore.
+VSCode is an All-in-One powerful editor that runs on your local machine. It can be used to connect to a remote workstation for develpment. It comes with a lot of useful features via extensions. This guide will show you how to set up and use VSCode to connect to a CILab workstation.
+- Download and install [VSCode](https://code.visualstudio.com/download) on your <mark>local machine</mark> (NOT the workstation!)
+- Remember to make a reservation before using a workstation. And, the reservations <mark>MUST be canceled</mark> if you are not using the workstations anymore.
 - SSH configuration:  
 *(skip this step if you have already done it before.)*
   + Run VS Code on your local machine.</li>
@@ -141,6 +145,7 @@ Now everything is set up and you can start working on the workstation with VS Co
 >   - In VS Code, most of the tasks can be done via `Command Palette` and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select `Keyboard Shortcuts` for more information.
 >   - In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) is useful for managing Git repositories. Recommended extensions: compareit, Edit csv, GitHub Copilot, GitHub Pull Requests and Issues, GitLens, LaTeX Workshop, Markdown All in One, Python, Remote-SSH, Remote Development, TensorBoard, and WSL.
 >   - With LaTeX Workshop, VSCode can be used to write and compile LaTeX documents. The output PDF file can be viewed directly in VSCode.
+>   - To run code in background, you can use `nohup` command. For example, `nohup python train.py &`. For more information, visit [`nohup`](https://en.wikipedia.org/wiki/Nohup). Also, you can use [`screen`](https://en.wikipedia.org/wiki/GNU_Screen) or [`tmux`](https://en.wikipedia.org/wiki/Tmux) for more advanced features.
 <!-- #### With X2Go 🚂 -->
 
 ---
