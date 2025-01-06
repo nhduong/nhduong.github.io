@@ -12,7 +12,6 @@ TocOpen: true
 ---
 
 ## Network Attached Storage (NAS) 📀
-
 > What is NAS for?
 > - Storing/sharing materials for research, e.g., datasets, codes, etc.
 > - Being linked to workstations for remote development.
@@ -25,7 +24,7 @@ TocOpen: true
 > You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
 
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
-1. **Connecting To NAS**
+2. **Connecting To NAS**
    - NAS Web Interface
      - Open a web browser and go to [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
      - Enter your username and password
@@ -34,17 +33,17 @@ TocOpen: true
        - [File Station] is for managing files and folders
        - [Personal] contains your account information
    - SFTP Clients  
-        Please refer to [Data Transfer Between Workstations/NAS](./cilab/#data-transfer-between-workstationsnas-) for more information
-2. **NAS Folder Structure**
-    - **your_username** contains your personal data.
-    - **PAPER-WORK** is for storing our lab's documents.
-    - **PUBLIC** is for sharing materials from graduated members, this folder is read-only.
+        Please refer to [Data Transfer 🚚](./cilab/#data-transfer--and-environment-setup-) for more information
+3. **NAS Folder Structure**
+    - *your_username* contains your personal data.
+    - *PAPER-WORK* is for storing our lab's documents.
+    - *PUBLIC* is for sharing materials from graduated members, this folder is read-only.
 
 ## GPU Workstations
-### 1. Using Terminal 💪
-### 2. Using VSCode 🚀
-### 3. With X2Go 🚂
-
-## Data Transfer Between Workstations/NAS 🚚
+### Data Transfer 🚚 And Environment Setup 🚧
+### Interacting With Workstations 🖥️
+#### Terminal 💪
+#### Using VSCode 🚀
+#### With X2Go 🚂
 
 ## Data Annotation With CVAT.ai ✏️
