@@ -71,7 +71,25 @@ For the most part, you will be working on GPU workstations with Python based pro
      conda activate <your environment name here>
      ```
      You should see the environment name in the terminal prompt which is `(csd)` in the figure below.
+
      ![regular](../figs/1.env.png)
+3. **Hello World!**
+   - Let's start with a simple Python script
+   - Use `nano` text editor to create a Python script
+     ```bash
+     nano hello.py
+     ```
+   - Enter the following content
+     ```python
+     print("Hello, World!")
+     ```
+   - Save the file by pressing `Ctrl + O` and then `Enter`
+   - Close `nano` by pressing `Ctrl + X`
+   - Run the file with the following command
+     ```bash
+     python hello.py
+     ```
+     You should see the output `Hello, World!` in the terminal.
 ### Data Transfer 🚚
 - Before starting to work on GPU workstations, you need to know how to transfer your data between your PC, NAS, and GPU workstations. Here are some tools that you can use:
   - sd
