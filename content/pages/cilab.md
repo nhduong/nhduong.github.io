@@ -39,11 +39,39 @@ TocOpen: true
     - *PAPER-WORK* is for storing our lab's documents.
     - *PUBLIC* is for sharing materials from graduated members, this folder is read-only.
 
+---
 ## GPU Workstations
-### Data Transfer 🚚 And Environment Setup 🚧
+### Connecting To Workstations 🖥️
+Let's start with the most common way to connect to a workstation, which is using SSH with a terminal.
+   - Ask the administrator for a username and a password
+   - Open a terminal
+   - Connect to the workstation with the following command
+     ```bash
+     ssh username@workstation_ip -p 1004
+     ```
+   - Enter your password
+   - You are now connected to the workstation  
+     ![regular](../figs/0.ssh_terminal.png)
+### Environment Setup 🚧
+For the most part, you will be working on GPU workstations with Python based projects. Here is an example of how to set up your Python environment:
+1. **Anaconda Installation**
+   - Download the latest version of Anaconda for Linux, for example, [Anaconda3-2024.10-1-Linux-x86_64.sh](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh).
+   - Install Anaconda by following the instructions on the website
+   - Create a new environment with Python 3.7
+     ```bash
+     conda create -n myenv python=3.7
+     ```
+   - Activate the environment
+     ```bash
+     conda activate myenv
+     ```
+### Data Transfer 🚚
+- Before starting to work on GPU workstations, you need to know how to transfer your data between your PC, NAS, and GPU workstations. Here are some tools that you can use:
+  - sd
 ### Interacting With Workstations 🖥️
 #### Terminal 💪
 #### Using VSCode 🚀
 #### With X2Go 🚂
 
-## Data Annotation With CVAT.ai ✏️
+---
+## (Optional) Data Annotation With CVAT.ai ✏️
