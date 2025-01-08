@@ -110,13 +110,13 @@ VSCode is an All-in-One powerful editor that runs on your local machine. It can 
   + Run VS Code on your local machine.</li>
   + Install the [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) in VSCode  
   ![regular](../figs/vscode/1.ssh.png)
-  + Press `F1` (Windows/Linux) or `⇧⌘P` (MacOS) to open `Command Palette`
+  + Press `F1` (Windows/Linux) or `⇧⌘P` (macOS) to open `Command Palette`
   + Type `Remote-SSH: Open SSH Configuration File...` and press `Enter`  
   ![regular](../figs/vscode/2.config.png)
   + Select:
     - Linux: `~/.ssh/config`
     - Windows: `C:\Users\your_username\.ssh\config`
-    - MacOS: `/Users/your_username/.ssh/config`  
+    - macOS: `/Users/your_username/.ssh/config`  
 
   then press `Enter`.
   + Add the following lines to the file:
@@ -129,7 +129,7 @@ VSCode is an All-in-One powerful editor that runs on your local machine. It can 
   + Save the file and close it.
 - Connecting to a server
   + Run VS Code on your local machine (if you haven't.)
-  + Press `F1` (Windows/Linux) or `⇧⌘P` (MacOS) to open `Command Palette`
+  + Press `F1` (Windows/Linux) or `⇧⌘P` (macOS) to open `Command Palette`
   + Type `Remote-SSH: Connect to Host...` and press `Enter`  
   ![regular](../figs/vscode/3.connect.png)
   + Select the name you set in the previous step and press `Enter`
@@ -183,7 +183,7 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
 
 	To mount a workstation/NAS folder on your local machine, follow these steps:
   + Open a terminal on your local machine.
-	+ Run the following command to mount a remote folder on your machine:
+  + Run the following command to mount a remote folder on your machine:
     ```bash
     sshfs your_username@remote_IP_address/your_username/remote_folder -p 1004 local_folder
     ```
