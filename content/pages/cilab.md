@@ -66,7 +66,11 @@ For the most part, you will be working on GPU workstations with Python based pro
      ```bash
      wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
      ```
-   - Install Anaconda by following the instructions
+   - Enter the following command to install Anaconda
+     ```bash
+     bash Anaconda3-2024.10-1-Linux-x86_64.sh
+     ```
+      then follow the instructions to complete the installation.
    - Create a new environment with Python 3.9
      ```bash
      conda create -n <your environment name here> python=3.9
