@@ -20,11 +20,11 @@ TocOpen: true
 
 1. **Gaining Access To NAS**
 - Ask the administrator for a username and a password
-- Change the password after the first login with web interface at [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
+- Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">[example](https://223.195.240.67:1006)</a>
 > You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
 
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
-2. **Connecting To NAS**
+1. **Connecting To NAS**
    - NAS Web Interface
      - Open a web browser and go to [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
      - Enter your username and password
@@ -34,7 +34,7 @@ TocOpen: true
        - [Personal] contains your account information
    - SFTP Clients  
         Please refer to [Data Transfer 🚚](./cilab/#data-transfer--and-environment-setup-) for more information
-3. **NAS Folder Structure**
+2. **NAS Folder Structure**
     - *your_username* contains your personal data.
     - *PAPER-WORK* is for storing our lab's documents.
     - *PUBLIC* is for sharing materials from graduated members, this folder is read-only.
