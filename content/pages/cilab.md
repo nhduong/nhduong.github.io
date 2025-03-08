@@ -20,7 +20,7 @@ TocOpen: true
 
 1. **Gaining Access To NAS**
 - Ask the administrator for a username and a password
-- Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">[example](https://223.195.240.67:1006)</a>
+- Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006sss</a>
 > You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
 
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
