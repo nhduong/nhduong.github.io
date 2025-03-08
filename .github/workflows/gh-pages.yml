@@ -135,7 +135,7 @@ jobs:
         run: |
           hugo --buildDrafts --gc --baseURL "${{ steps.pages.outputs.base_url || '/' }}"
 
-      - name: Debug: Check if Public Folder Exists
+      - name: Debug Check if Public Folder Exists
         run: ls -lah ./public || echo "Public folder not found!"
 
       - name: Upload GitHub Pages Artifact
