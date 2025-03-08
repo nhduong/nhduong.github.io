@@ -139,7 +139,7 @@ jobs:
         run: ls -lah ./public || echo "Public folder not found!"
 
       - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
           name: github-pages # Required for deploy-pages to find it
@@ -154,3 +154,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages  # Ensure deploy step matches the upload name
