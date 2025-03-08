@@ -20,20 +20,20 @@ TocOpen: true
 
 1. **Gaining Access To NAS**
 - Ask the administrator for a username and a password
-- Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006sss</a>
+- Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006</a>
 > You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
 
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
 1. **Connecting To NAS**
    - NAS Web Interface
-     - Open a web browser and go to [https://223.195.240.67:1006/](https://223.195.240.67:1006/)
+     - Open a web browser and go to <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006</a>
      - Enter your username and password
      - Click [Sign In]
      - NAS Web Interface main features include:
        - [File Station] is for managing files and folders
        - [Personal] contains your account information
    - SFTP Clients  
-        Please refer to [Data Transfer 🚚](./cilab/#data-transfer--and-environment-setup-) for more information
+        Please refer to [Data Transfer 🚚](./cilab/#data-transfer-) for more information
 2. **NAS Folder Structure**
     - *your_username* contains your personal data.
     - *PAPER-WORK* is for storing our lab's documents.
@@ -42,7 +42,7 @@ TocOpen: true
 ---
 ## GPU Workstations
 ### Reservation 📅
-Head to the [CILAB_Shared_GPUs_Sheet](https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA) to reserve the GPU(s) you need. In summary,
+Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a> to reserve the GPU(s) you need. In summary,
 - <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
 - <mark>Cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> anymore.  
 
@@ -103,12 +103,12 @@ For the most part, you will be working on GPU workstations with Python based pro
 <!-- #### Terminal 💪 -->
 <!-- #### Using VSCode 🚀 -->
 VSCode is an All-in-One powerful editor that runs on your local machine. It can be used to connect to a remote workstation for develpment. It comes with a lot of useful features via extensions. This guide will show you how to set up and use VSCode to connect to a CILab workstation.
-- Download and install [VSCode](https://code.visualstudio.com/download) on your <mark>local machine</mark> (NOT the workstation!)
+- Download and install <a href="https://code.visualstudio.com/download" target="_blank">VSCode</a> on your <mark>local machine</mark> (NOT the workstation!)
 - Remember to make a reservation before using a workstation. And, the reservations <mark>MUST be canceled</mark> if you are not using the workstations anymore.
 - SSH configuration:  
 *(skip this step if you have already done it before.)*
   + Run VS Code on your local machine.</li>
-  + Install the [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) in VSCode  
+  + Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh" target="_blank">Remote-SSH extension</a> in VSCode  
   ![regular](../figs/vscode/1.ssh.png)
   + Press `F1` (Windows/Linux) or `⇧⌘P` (macOS) to open `Command Palette`
   + Type `Remote-SSH: Open SSH Configuration File...` and press `Enter`  
@@ -147,19 +147,19 @@ Now everything is set up and you can start working on the workstation with VS Co
 > *Tips and tricks*
 >   - With VS Code, in general, a task, e.g., openning a terminal instance, can be done in multiple ways. Play around with it to find the way you like.
 >   - In VS Code, most of the tasks can be done via `Command Palette` and they can also be associated with keyboard shortcuts. Click the wheel icon in the bottom left corner then select `Keyboard Shortcuts` for more information.
->   - In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) is useful for managing Git repositories. Recommended extensions: compareit, Edit csv, GitHub Copilot, GitHub Pull Requests and Issues, GitLens, LaTeX Workshop, Markdown All in One, Python, Remote-SSH, Remote Development, TensorBoard, and WSL.
+>   - In addition the Remote-SSH extension, you can also install other extensions in VS Code. For example, <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens" target="_blank">GitLens</a> is useful for managing Git repositories. Recommended extensions: compareit, Edit csv, GitHub Copilot, GitHub Pull Requests and Issues, GitLens, LaTeX Workshop, Markdown All in One, Python, Remote-SSH, Remote Development, TensorBoard, and WSL.
 >   - With LaTeX Workshop, VSCode can be used to write and compile LaTeX documents. The output PDF file can be viewed directly in VSCode.
->   - To run code in background, you can use `nohup` command. For example, `nohup python train.py &`. For more information, visit [`nohup`](https://en.wikipedia.org/wiki/Nohup). Also, you can use [`screen`](https://en.wikipedia.org/wiki/GNU_Screen) or [`tmux`](https://en.wikipedia.org/wiki/Tmux) for more advanced features.
+>   - To run code in background, you can use `nohup` command. For example, `nohup python train.py &`. For more information, visit <a href="https://en.wikipedia.org/wiki/Nohup" target="_blank">nohup</a>. Also, you can use <a href="https://en.wikipedia.org/wiki/GNU_Screen" target="_blank">screen</a> or <a href="https://en.wikipedia.org/wiki/Tmux" target="_blank">tmux</a> for more advanced features.
 <!-- #### With X2Go 🚂 -->
 
 ---
 ## Data Transfer 🚚
-Secure File Transfer Protocol (SFTP) is required for transferring data between your PCs, workstations and NAS. There are several SFTP clients available for you to choose from, such as [FileZilla](https://filezilla-project.org/), [Bitvise](https://www.bitvise.com/ssh-client), etc. For command line based software, [sshfs](https://github.com/libfuse/sshfs") [rclone](https://rclone.org/), etc. are also available. In this tutorial, we will use FileZilla, `sshfs`, and `rclone` as examples.
+Secure File Transfer Protocol (SFTP) is required for transferring data between your PCs, workstations and NAS. There are several SFTP clients available for you to choose from, such as <a href="https://filezilla-project.org" target="_blank">FileZilla</a>, <a href="https://www.bitvise.com/ssh-client" target="_blank">Bitvise</a>, etc. For command line based software, <a href="https://github.com/libfuse/sshfs" target="_blank">sshfs</a>, <a href="https://rclone.org" target="_blank">rclone</a>, etc. are also available. In this tutorial, we will use FileZilla, `sshfs`, and `rclone` as examples.
 
 - FileZilla  
   FileZilla is a free software and available for Windows, macOS, and Linux. It is easy to use and provides a user-friendly interface for transferring files between your PCs, workstations and NAS.  
   Here are the steps to make a connection to workstations/NAS via FileZilla:
-	+ Download and install [FileZilla](https://filezilla-project.org/download.php/)
+	+ Download and install <a href="https://filezilla-project.org" target="_blank">FileZilla</a>
 	+ Head to `File -> Site Manager -> New Site`
   + Fill in the following information:
     + *Protocol*: SFTP - SSH File Transfer Protocol
@@ -179,7 +179,7 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
   ![regular](../figs/trans/2.mainwin.png)
 
 - `sshfs`  
-	`sshfs` is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access a folder on the workstation/NAS via a local folder on your PCs. To install sshfs, follow the instructions for [Linux](https://github.com/libfuse/sshfs), [Windows](https://github.com/winfsp/sshfs-win), and [macOS](https://osxfuse.github.io).
+	`sshfs` is a command line based software that allows you to mount a remote file system via SFTP. In other words, you can access a folder on the workstation/NAS via a local folder on your PCs. To install sshfs, follow the instructions for <a href="https://github.com/libfuse/sshfs" target="_blank">Linux</a>, <a href="https://github.com/winfsp/sshfs-win" target="_blank">Windows</a>, and <a href="https://osxfuse.github.io" target="_blank">macOS</a>.
 
 	To mount a workstation/NAS folder on your local machine, follow these steps:
   + Open a terminal on your local machine.
@@ -193,7 +193,7 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
 
 - `rclone`  
 `rclone` is another command line based software that allows you to transfer data between your PCs, workstations and NAS. It supports various cloud storage providers, including Google Drive, Dropbox, etc. To set up `rclone` on a local machine or a workstation, follow these steps:
-  + Download [rclone-version-os.zip](https://rclone.org/downloads) based on your operating system  
+  + Download <a href="https://rclone.org/downloads" target="_blank">rclone-version-os.zip</a> based on your operating system  
   ![regular](../figs/trans/3.rclone_download.png)
   + Unzip the downloaded file to a folder, for example, `/home/user/rclone`
   + Run the following command to set up a connection to a workstation/NAS:
@@ -221,7 +221,7 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
       ```bash
       ./rclone copy local_folder nas:/remote_folder
       ```
-      There are many other features of `rclone` that you might want to explore. Execute `./rclone --help` or visit [Rclone Commands](https://rclone.org/commands/) for more information.
+      There are many other features of `rclone` that you might want to explore. Execute `./rclone --help` or visit <a href="https://rclone.org/commands" target="_blank">Rclone Commands</a> for more information.
 
 ---
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
