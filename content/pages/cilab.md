@@ -185,7 +185,7 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
   + Open a terminal on your local machine.
   + Run the following command to mount a remote folder on your machine:
     ```bash
-    sshfs your_username@remote_IP_address/your_username/remote_folder -p 1004 local_folder
+    sshfs your_username@remote_IP_address:/your_username/remote_folder -p 1004 local_folder
     ```
     > In addition to your PCs, the above command can also be run on a workstation! This way, your workstation can access a NAS folder or another workstation's folder.
 
