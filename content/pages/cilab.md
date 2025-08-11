@@ -227,6 +227,8 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
 ## SSH Keys 🔑
 SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, a `private key` is kept on your local machine at `~/.ssh/id_XXX` and a `public key` is stored on the remote server at `~/.ssh/authorized_keys`.
 
+Instead of entering your password every time you connect to a workstation, you can use SSH keys to login without a password. This is more secure and convenient.
+
 To set up SSH keys, follow these steps:
 1. **Generate SSH keys**
    - Open a terminal on your <mark>local machine</mark>
