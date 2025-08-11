@@ -241,7 +241,7 @@ To set up SSH keys, follow these steps:
      - After that,
         - Your private key will be saved to `~/.ssh/id_ed25519`
         - Your public key will be saved to `~/.ssh/id_ed25519.pub`
-2. **Copy the public key to the workstations**
+2. **Copy the <mark>public key</mark> to the <mark>workstations</mark>**
 
    Do the following steps for each workstation:
    - Open the public key file `~/.ssh/id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
@@ -275,6 +275,7 @@ To set up SSH keys, follow these steps:
      ```bash
      ssh -i ~/.ssh/id_ed25519 your_username@workstation_ip_address -p 1004
      ```
+     where `-i ~/.ssh/id_ed25519` specifies the path to your private key file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your private key.
     - If everything is set up correctly, you should be able to log in to the workstation without entering a password.
 4. **(Optional) Add the SSH key to the SSH agent**
    - If you want to use the SSH key without entering the passphrase or path to the key every time, you can add the SSH key to the SSH agent.
@@ -292,10 +293,16 @@ To set up SSH keys, follow these steps:
      ```bash
      ssh-add ~/.ssh/id_ed25519
      ```
+   - Test the SSH connection again
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+     As you can see, you do not need to specify the private key file, passphrase, or password anymore!
 
-<mark>Important notes:</mark>
+Notes:
 > - <mark>NO NOT</mark> share your private key `~/.ssh/id_ed25519` with anyone. You can think of it as your password!
 > - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the public key `~/.ssh/id_ed25519.pub` to each workstation and private key `~/.ssh/id_ed25519` to each local machine.
+> - If you configure the SSH agent correctly, you can login to a workstation via VSCode without entering your password!
 ---
 
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
