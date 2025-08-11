@@ -225,9 +225,11 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
 
 ---
 ## SSH Keys 🔑
-SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, a `private key` is kept on your local machine at `~/.ssh/id_XXX` and a `public key` is stored on the remote server at `~/.ssh/authorized_keys`.
+SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, you will need two keys:
+- A `private key` is kept on your <mark>local machine</mark> at `~/.ssh/id_XXX` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_XXX` (Windows)
+- A `public key` is stored on <mark>workstations</mark> at `~/.ssh/authorized_keys`
 
-Instead of entering your password every time you connect to a workstation, you can use SSH keys to login without a password. This is more secure and convenient.
+Instead of entering your password every time you connect to a workstation, your `private key` will be sent to the workstation to verify your identity via the `public key`. This way, you can log in without entering a password. This is more secure and convenient.
 
 To set up SSH keys, follow these steps:
 1. **Generate SSH keys**
@@ -236,16 +238,21 @@ To set up SSH keys, follow these steps:
      ```bash
      ssh-keygen -t ed25519 -C "any comment you like"
      ```
-     - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519`.
-     - Next, you will be prompted to enter a passphrase. You can leave it empty or enter a passphrase for added security.
-     - After that,
-        - Your private key will be saved to `~/.ssh/id_ed25519`
-        - Your public key will be saved to `~/.ssh/id_ed25519.pub`
-2. **Copy the <mark>public key</mark> to the <mark>workstations</mark>**
+     - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519` 
+       (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
+     - Next, you will be prompted to enter a passphrase to protect the keys. You can leave it empty by pressing `Enter` or type a passphrase for added security. I personally leave it empty but please choose what you feel comfortable with.
+     - After that, your SSH key pair will be generated in the `~/.ssh` directory 
+       (Linux/MacOS) or `C:\Users\your_username\.ssh` (Windows) on your <mark>local machine</mark>:
+        - `private key` is saved as `id_ed25519`
+        - `public key` is saved as `id_ed25519.pub`
+2. **Copy the `public key` to the <mark>workstations</mark>**
 
    Do the following steps for each workstation:
-   - Open the public key file `~/.ssh/id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
-   - Copy its content
+   - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
+   - Copy its content. For example, it should look like this:
+     ```
+     ssh-ed25519 AAAAC3Nza... your_comment
+     ```
    - Open a terminal on your <mark>local machine</mark>
    - Login to a <mark>workstation</mark> using SSH
      ```bash
@@ -257,10 +264,10 @@ To set up SSH keys, follow these steps:
       ```
     - Paste the content into the `~/.ssh/authorized_keys` file on the workstation
       ```bash
-      echo "your_public_key_content" >> ~/.ssh/authorized_keys
+      echo "ssh-ed25519 AAAAC3Nza... your_comment" >> ~/.ssh/authorized_keys
       ```
-      where `your_public_key_content` is the content of the public key file you opened earlier.
-    - Set the correct permissions for the `~/.ssh` directory and the `authorized_keys` file
+      replace `ssh-ed25519 AAAAC3Nza... your_comment` with the actual content of your `public key` file.
+    - Set the correct permissions for the `~/.ssh` directory and the `authorized_keys` file so that only you can read and write to them
       ```bash
       chmod 700 ~/.ssh
       chmod 600 ~/.ssh/authorized_keys
@@ -272,36 +279,46 @@ To set up SSH keys, follow these steps:
 3. **Test the SSH key authentication**
    - Open a terminal on your <mark>local machine</mark>
    - Run the following command to test the SSH connection
-     ```bash
-     ssh -i ~/.ssh/id_ed25519 your_username@workstation_ip_address -p 1004
-     ```
-     where `-i ~/.ssh/id_ed25519` specifies the path to your private key file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your private key.
+     - For Linux and macOS:
+          ```bash
+          ssh your_username@workstation_ip_address -p 1004 -i ~/.ssh/id_ed25519
+          ```
+      - For Windows:
+          ```bash
+          ssh your_username@workstation_ip_address -p 1004 -i C:\Users\your_username\.ssh\id_ed25519
+          ```
+     where `-i ~/.ssh/id_ed25519` and `-i C:\Users\your_username\.ssh\id_ed25519` specifies the path to your `private key` file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your `private key`.
     - If everything is set up correctly, you should be able to log in to the workstation without entering a password.
 4. **(Optional) Add the SSH key to the SSH agent**
-   - If you want to use the SSH key without entering the passphrase or path to the key every time, you can add the SSH key to the SSH agent.
+   - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent.
    - Start the SSH agent
 
-     For Windows,
-     ```bash
-     Start-Service ssh-agent
-     ```
-     For Linux and macOS,
-     ```bash
-     eval "$(ssh-agent -s)"
-     ```
+      - For Linux and macOS,
+        ```bash
+        eval "$(ssh-agent -s)"
+        ```
+      - For Windows,
+        ```bash
+        Start-Service ssh-agent
+        ```
    - Add the SSH key to the agent
-     ```bash
-     ssh-add ~/.ssh/id_ed25519
-     ```
+      - For Linux and macOS,
+        ```bash
+        ssh-add ~/.ssh/id_ed25519
+        ```
+      - For Windows,
+        ```bash
+        ssh-add C:\Users\your_username\.ssh\id_ed25519
+        ```
    - Test the SSH connection again
      ```bash
      ssh your_username@workstation_ip_address -p 1004
      ```
-     As you can see, you do not need to specify the private key file, passphrase, or password anymore!
+     As you can see, you do not need to specify the `private key` file or password anymore!
 
 Notes:
-> - <mark>NO NOT</mark> share your private key `~/.ssh/id_ed25519` with anyone. You can think of it as your password!
-> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the public key `~/.ssh/id_ed25519.pub` to each workstation and private key `~/.ssh/id_ed25519` to each local machine.
+> - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
+> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations and `private key` to all your local machines.
 > - If you configure the SSH agent correctly, you can login to a workstation via VSCode without entering your password!
 ---
 
