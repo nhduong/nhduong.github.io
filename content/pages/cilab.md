@@ -224,4 +224,76 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
       There are many other features of `rclone` that you might want to explore. Execute `./rclone --help` or visit <a href="https://rclone.org/commands" target="_blank">Rclone Commands</a> for more information.
 
 ---
+## SSH Keys 🔑
+SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, a `private key` is kept on your local machine at `~/.ssh/id_XXX` and a `public key` is stored on the remote server at `~/.ssh/authorized_keys`.
+
+To set up SSH keys, follow these steps:
+1. **Generate SSH keys**
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to generate a new SSH key pair
+     ```bash
+     ssh-keygen -t ed25519 -C "any comment you like"
+     ```
+     - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519`.
+     - Next, you will be prompted to enter a passphrase. You can leave it empty or enter a passphrase for added security.
+     - After that,
+        - Your private key will be saved to `~/.ssh/id_ed25519`
+        - Your public key will be saved to `~/.ssh/id_ed25519.pub`
+2. **Copy the public key to the workstations**
+
+   Do the following steps for each workstation:
+   - Open the public key file `~/.ssh/id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
+   - Copy its content
+   - Open a terminal on your <mark>local machine</mark>
+   - Login to a <mark>workstation</mark> using SSH
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+    - Create the `~/.ssh` directory if it does not exist
+      ```bash
+      mkdir -p ~/.ssh
+      ```
+    - Paste the content into the `~/.ssh/authorized_keys` file on the workstation
+      ```bash
+      echo "your_public_key_content" >> ~/.ssh/authorized_keys
+      ```
+      where `your_public_key_content` is the content of the public key file you opened earlier.
+    - Set the correct permissions for the `~/.ssh` directory and the `authorized_keys` file
+      ```bash
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+      ```
+    - Exit the workstation
+      ```bash
+      exit
+      ```
+3. **Test the SSH key authentication**
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to test the SSH connection
+     ```bash
+     ssh -i ~/.ssh/id_ed25519 your_username@workstation_ip_address -p 1004
+     ```
+    - If everything is set up correctly, you should be able to log in to the workstation without entering a password.
+4. **(Optional) Add the SSH key to the SSH agent**
+   - If you want to use the SSH key without entering the passphrase or path to the key every time, you can add the SSH key to the SSH agent.
+   - Start the SSH agent
+
+     For Windows,
+     ```bash
+     Start-Service ssh-agent
+     ```
+     For Linux and macOS,
+     ```bash
+     eval "$(ssh-agent -s)"
+     ```
+   - Add the SSH key to the agent
+     ```bash
+     ssh-add ~/.ssh/id_ed25519
+     ```
+
+<mark>Important notes:</mark>
+> - <mark>NO NOT</mark> share your private key `~/.ssh/id_ed25519` with anyone. You can think of it as your password!
+> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the public key `~/.ssh/id_ed25519.pub` to each workstation and private key `~/.ssh/id_ed25519` to each local machine.
+---
+
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
