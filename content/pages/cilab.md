@@ -250,7 +250,7 @@ To set up SSH keys, follow these steps:
    Do the following steps for each workstation:
    - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
    - Copy its content. For example, it should look like this:
-     ```
+     ```bash
      ssh-ed25519 AAAAC3Nza... your_comment
      ```
    - Open a terminal on your <mark>local machine</mark>
