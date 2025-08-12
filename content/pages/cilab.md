@@ -322,7 +322,13 @@ To set up SSH keys, follow these steps:
      ```
      As you can see, you do not need to specify the `private key` file or password anymore!
 
-Notes:
+> In summary,
+> - Local machines:
+>   - A `private key` file at `~/.ssh/id_ed25519` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
+>   - (optional) Adding the `private key` to the SSH agent
+> - Workstations: a `public key` at `~/.ssh/authorized_keys`
+
+> Notes:
 > - After entering `ssh your_username@workstation_ip_address -p 1004`, if you are asked to enter your password, it means that the <mark>SSH key authentication is NOT set up correctly</mark>. Leave a message in our KakaoTalk group for help!
 > - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
 > - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
