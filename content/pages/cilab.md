@@ -236,8 +236,9 @@ To set up SSH keys, follow these steps:
    - Open a terminal on your <mark>local machine</mark>
    - Run the following command to generate a new SSH key pair
      ```bash
-     ssh-keygen -t ed25519 -C "any comment you like"
+     ssh-keygen -t ed25519 -C "your_comment"
      ```
+     where `your_comment` is any text you want, for example, `cilab`
      - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519` 
        (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
      - Next, you will be prompted to enter a passphrase to protect the keys. You can leave it empty by pressing `Enter` or type a passphrase for added security. I personally leave it empty but please choose what you feel comfortable with.
@@ -293,15 +294,20 @@ To set up SSH keys, follow these steps:
    - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent.
    - Start the SSH agent
 
-      - For Linux and macOS,
+      - For Linux and macOS, from the terminal in <mark>local machine</mark>,
         ```bash
         eval "$(ssh-agent -s)"
         ```
       - For Windows,
-        ```bash
-        Start-Service ssh-agent
-        ```
-   - Add the SSH key to the agent
+        - Press `Windows + R` to open the Run dialog
+        - Type `service.msc` and press `Enter` to open the Services window
+        - Look for `OpenSSH Authentication Agent` in the list
+        - Double-click on it to open its properties
+        - Set the `Startup type` to `Automatic`
+        - Press `Apply`
+        - Press `Start` to start the service
+        - Press `OK` to close the properties window
+   - Add the SSH key to the agent, open a terminal on your <mark>local machine</mark> and run the following command:
       - For Linux and macOS,
         ```bash
         ssh-add ~/.ssh/id_ed25519
@@ -318,8 +324,8 @@ To set up SSH keys, follow these steps:
 
 Notes:
 > - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
-> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations and `private key` to all your local machines.
-> - If you configure the SSH agent correctly, you can login to a workstation via VSCode without entering your password!
+> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
+> - If you configure the SSH agent correctly, you can login to a workstation via <mark>VSCode</mark> without entering your password!
 ---
 
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
