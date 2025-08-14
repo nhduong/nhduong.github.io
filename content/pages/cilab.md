@@ -230,7 +230,6 @@ SSH keys are a pair of cryptographic keys used to authenticate a user to a remot
 - A `public key` is stored on <mark>workstations</mark> at `~/.ssh/authorized_keys`
 
 ![regular](../figs/sshkeys/SSHkeydiagram.png)  
-*https://www.foxpass.com/blog/learn-ssh-keys-in-minutes/*
 
 Instead of entering your password every time you connect to a workstation, our PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
 
