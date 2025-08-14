@@ -299,8 +299,9 @@ To set up SSH keys, follow these steps:
         eval "$(ssh-agent -s)"
         ```
       - For Windows,
-        - Press `Windows + R` to open the Run dialog
-        - Type `service.msc` and press `Enter` to open the Services window
+        - Open `Services` by following one of these methods
+          - Option 1: Press `Windows + R` to open the Run dialog, type `service.msc` and press `Enter`
+          - Option 2: Press `Start Menu`, type `services` and press `Enter`
         - Look for `OpenSSH Authentication Agent` in the list
         - Double-click on it to open its properties
         - Set the `Startup type` to `Automatic`
