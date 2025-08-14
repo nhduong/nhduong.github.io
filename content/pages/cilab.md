@@ -229,7 +229,7 @@ SSH keys are a pair of cryptographic keys used to authenticate a user to a remot
 - A `private key` is kept on your <mark>local machine</mark> at `~/.ssh/id_XXX` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_XXX` (Windows)
 - A `public key` is stored on <mark>workstations</mark> at `~/.ssh/authorized_keys`
 
-Instead of entering your password every time you connect to a workstation, your `private key` will be sent to the workstation to verify your identity via the `public key`. This way, you can log in without entering a password. This is more secure and convenient.
+Instead of entering your password every time you connect to a workstation, our PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
 
 To set up SSH keys, follow these steps:
 1. **Generate SSH keys**
