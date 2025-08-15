@@ -235,6 +235,7 @@ Instead of entering your password every time you connect to a workstation, our P
 
 To set up SSH keys, follow these steps:
 1. **Generate SSH keys**
+
    > <mark>This step should be done ONLY ONE TIME!</mark>
    - Open a terminal on your <mark>local machine</mark>
    - Run the following command to generate a new SSH key pair
@@ -249,7 +250,43 @@ To set up SSH keys, follow these steps:
        (Linux/MacOS) or `C:\Users\your_username\.ssh` (Windows) on your <mark>local machine</mark>:
         - `private key` is saved as `id_ed25519`
         - `public key` is saved as `id_ed25519.pub`
-2. **Copy the `public key` to the <mark>workstations</mark>**
+
+2. **Add the SSH key to the SSH agent**
+
+   > <mark>This step should be done ONLY ONE TIME!</mark>
+   <!-- - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent. -->
+   - Start the SSH agent
+
+      - For Linux and macOS, from the terminal in <mark>local machine</mark>,
+        ```bash
+        eval "$(ssh-agent -s)"
+        ```
+      - For Windows,
+        - Open `Services` by following one of these methods
+          - Option 1: Press `Windows + R` to open the Run dialog, type `service.msc` and press `Enter`
+          - Option 2: Press `Start Menu`, type `services` and press `Enter`
+        - Look for `OpenSSH Authentication Agent` in the list
+        - Double-click on it to open its properties
+        - Set the `Startup type` to `Automatic`
+        - Press `Apply`
+        - Press `Start` to start the service
+        - Press `OK` to close the properties window
+   - Add the SSH key to the agent, open a terminal on your <mark>local machine</mark> and run the following command:
+      - For Linux and macOS,
+        ```bash
+        ssh-add ~/.ssh/id_ed25519
+        ```
+      - For Windows,
+        ```bash
+        ssh-add C:\Users\your_username\.ssh\id_ed25519
+        ```
+   <!-- - Test the SSH connection
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+     As you can see, you do not need to specify password anymore! Similarly, you will not need to enter password when using VSCode to connect to workstations. -->
+
+3. **Copy the `public key` to the <mark>workstations</mark>**
 
    > <mark>Do the following steps for ALL the workstations!</mark>
    - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
@@ -293,43 +330,18 @@ To set up SSH keys, follow these steps:
           ```
      where `-i ~/.ssh/id_ed25519` and `-i C:\Users\your_username\.ssh\id_ed25519` specifies the path to your `private key` file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your `private key`.
     - If everything is set up correctly, you should be able to log in to the workstation without entering a password. -->
-3. **Add the SSH key to the SSH agent**
-   <!-- - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent. -->
-   - Start the SSH agent
 
-      - For Linux and macOS, from the terminal in <mark>local machine</mark>,
-        ```bash
-        eval "$(ssh-agent -s)"
-        ```
-      - For Windows,
-        - Open `Services` by following one of these methods
-          - Option 1: Press `Windows + R` to open the Run dialog, type `service.msc` and press `Enter`
-          - Option 2: Press `Start Menu`, type `services` and press `Enter`
-        - Look for `OpenSSH Authentication Agent` in the list
-        - Double-click on it to open its properties
-        - Set the `Startup type` to `Automatic`
-        - Press `Apply`
-        - Press `Start` to start the service
-        - Press `OK` to close the properties window
-   - Add the SSH key to the agent, open a terminal on your <mark>local machine</mark> and run the following command:
-      - For Linux and macOS,
-        ```bash
-        ssh-add ~/.ssh/id_ed25519
-        ```
-      - For Windows,
-        ```bash
-        ssh-add C:\Users\your_username\.ssh\id_ed25519
-        ```
-   - Test the SSH connection
+4. **Test the connection**
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to test the SSH connection
      ```bash
      ssh your_username@workstation_ip_address -p 1004
      ```
-     As you can see, you do not need to specify password anymore! Similarly, you will not need to enter password when using VSCode to connect to workstations.
-
+     If everything is set up correctly, you should be able to log in to the workstation without entering a password! This is also applied when you use VSCode to connect to workstations.
 > In summary,
 > - Local machines:
 >   - A `private key` file at `~/.ssh/id_ed25519` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
->   - (optional) Adding the `private key` to the SSH agent
+>   - Adding the `private key` to the SSH agent
 > - Workstations: a `public key` at `~/.ssh/authorized_keys`
 
 > Notes:
