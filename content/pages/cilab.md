@@ -251,7 +251,7 @@ To set up SSH keys, follow these steps:
         - `public key` is saved as `id_ed25519.pub`
 2. **Copy the `public key` to the <mark>workstations</mark>**
 
-   Do the following steps for each workstation:
+   > <mark>Do the following steps for ALL the workstations!</mark>
    - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
    - Copy its content. For example, it should look like this:
      ```bash
@@ -280,7 +280,7 @@ To set up SSH keys, follow these steps:
       ```bash
       exit
       ```
-3. **Test the SSH key authentication**
+<!-- 3. **Test the SSH key authentication**
    - Open a terminal on your <mark>local machine</mark>
    - Run the following command to test the SSH connection
      - For Linux and macOS:
@@ -292,9 +292,9 @@ To set up SSH keys, follow these steps:
           ssh your_username@workstation_ip_address -p 1004 -i C:\Users\your_username\.ssh\id_ed25519
           ```
      where `-i ~/.ssh/id_ed25519` and `-i C:\Users\your_username\.ssh\id_ed25519` specifies the path to your `private key` file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your `private key`.
-    - If everything is set up correctly, you should be able to log in to the workstation without entering a password.
-4. **(Optional) Add the SSH key to the SSH agent**
-   - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent.
+    - If everything is set up correctly, you should be able to log in to the workstation without entering a password. -->
+3. **Add the SSH key to the SSH agent**
+   <!-- - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent. -->
    - Start the SSH agent
 
       - For Linux and macOS, from the terminal in <mark>local machine</mark>,
@@ -320,11 +320,11 @@ To set up SSH keys, follow these steps:
         ```bash
         ssh-add C:\Users\your_username\.ssh\id_ed25519
         ```
-   - Test the SSH connection again
+   - Test the SSH connection
      ```bash
      ssh your_username@workstation_ip_address -p 1004
      ```
-     As you can see, you do not need to specify the `private key` file or password anymore!
+     As you can see, you do not need to specify password anymore! Similarly, you will not need to enter password when using VSCode to connect to workstations.
 
 > In summary,
 > - Local machines:
@@ -335,8 +335,8 @@ To set up SSH keys, follow these steps:
 > Notes:
 > - After entering `ssh your_username@workstation_ip_address -p 1004`, if you are asked to enter your password, it means that the <mark>SSH key authentication is NOT set up correctly</mark>. Leave a message in our KakaoTalk group for help!
 > - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
+> - If you have any issue with `REMOTE HOST IDENTIFICATION HAS CHANGED` and errors related to `.ssh/known_hosts`, please remove the corresponding line in the `~/.ssh/known_hosts` file on your <mark>local machine</mark> or simply delete `~/.ssh/known_hosts` if you are comfortable doing so.
 > - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
-> - If you configure the SSH agent correctly, you can login to a workstation via <mark>VSCode</mark> without entering your password!
 ---
 
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
