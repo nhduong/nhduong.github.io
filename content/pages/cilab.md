@@ -168,6 +168,7 @@ To set up SSH keys, follow these steps:
 > - If you have any issue with `REMOTE HOST IDENTIFICATION HAS CHANGED` and errors related to `.ssh/known_hosts`, please remove the corresponding line in the `~/.ssh/known_hosts` file on your <mark>local machine</mark> or simply delete `~/.ssh/known_hosts` if you are comfortable doing so.
 > - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
 
+## Basic Usage 🖥️
 ---
 ### Reservation 📅
 Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a> to reserve the GPU(s) you need. In summary,
