@@ -11,7 +11,7 @@ ShowToc: true
 TocOpen: true
 ---
 
-## Network Attached Storage (NAS) 📀
+# Network Attached Storage (NAS) 📀
 > What is NAS for?
 > - Storing/sharing materials for research, e.g., datasets, codes, etc.
 > - Being linked to workstations for remote development.
@@ -40,7 +40,135 @@ TocOpen: true
     - *PUBLIC* is for sharing materials from graduated members, this folder is read-only.
 
 ---
-## GPU Workstations
+# GPU Workstations
+
+## SSH Keys 🔑
+SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, you will need two keys:
+- A `private key` is kept on your <mark>local machine</mark> at `~/.ssh/id_XXX` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_XXX` (Windows)
+- A `public key` is stored on <mark>workstations</mark> at `~/.ssh/authorized_keys`
+
+![regular](../figs/sshkeys/SSHkeydiagram.png)  
+
+Instead of entering your password every time you connect to a workstation, our PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
+
+To set up SSH keys, follow these steps:
+1. **Generate SSH keys**
+
+   > <mark>This step should be done ONLY ONE TIME!</mark>
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to generate a new SSH key pair
+     ```bash
+     ssh-keygen -t ed25519 -C "your_comment"
+     ```
+     where `your_comment` is any text you want, for example, `cilab`
+     - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519` 
+       (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
+     - Next, you will be prompted to enter a passphrase to protect the keys. You can leave it empty by pressing `Enter` or type a passphrase for added security. I personally leave it empty but please choose what you feel comfortable with.
+     - After that, your SSH key pair will be generated in the `~/.ssh` directory 
+       (Linux/MacOS) or `C:\Users\your_username\.ssh` (Windows) on your <mark>local machine</mark>:
+        - `private key` is saved as `id_ed25519`
+        - `public key` is saved as `id_ed25519.pub`
+
+2. **Add the SSH key to the SSH agent**
+
+   > <mark>This step should be done ONLY ONE TIME!</mark>
+   <!-- - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent. -->
+   - Start the SSH agent
+
+      - For Linux and macOS, from the terminal in <mark>local machine</mark>,
+        ```bash
+        eval "$(ssh-agent -s)"
+        ```
+      - For Windows,
+        - Open `Services` by following one of these methods
+          - Option 1: Press `Windows + R` to open the Run dialog, type `service.msc` and press `Enter`
+          - Option 2: Press `Start Menu`, type `services` and press `Enter`
+        - Look for `OpenSSH Authentication Agent` in the list
+        - Double-click on it to open its properties
+        - Set the `Startup type` to `Automatic`
+        - Press `Apply`
+        - Press `Start` to start the service
+        - Press `OK` to close the properties window
+   - Add the SSH key to the agent, open a terminal on your <mark>local machine</mark> and run the following command:
+      - For Linux and macOS,
+        ```bash
+        ssh-add ~/.ssh/id_ed25519
+        ```
+      - For Windows,
+        ```bash
+        ssh-add C:\Users\your_username\.ssh\id_ed25519
+        ```
+   <!-- - Test the SSH connection
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+     As you can see, you do not need to specify password anymore! Similarly, you will not need to enter password when using VSCode to connect to workstations. -->
+
+3. **Copy the `public key` to the <mark>workstations</mark>**
+
+   > <mark>Do the following steps for ALL the workstations!</mark>
+   - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
+   - Copy its content. For example, it should look like this:
+     ```bash
+     ssh-ed25519 AAAAC3Nza... your_comment
+     ```
+   - Open a terminal on your <mark>local machine</mark>
+   - Login to a <mark>workstation</mark> using SSH
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+    - Create the `~/.ssh` directory if it does not exist
+      ```bash
+      mkdir -p ~/.ssh
+      ```
+    - Paste the content into the `~/.ssh/authorized_keys` file on the workstation
+      ```bash
+      echo "ssh-ed25519 AAAAC3Nza... your_comment" >> ~/.ssh/authorized_keys
+      ```
+      replace `ssh-ed25519 AAAAC3Nza... your_comment` with the actual content of your `public key` file.
+    - Set the correct permissions for the `~/.ssh` directory and the `authorized_keys` file so that only you can read and write to them
+      ```bash
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+      ```
+    - Exit the workstation
+      ```bash
+      exit
+      ```
+<!-- 3. **Test the SSH key authentication**
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to test the SSH connection
+     - For Linux and macOS:
+          ```bash
+          ssh your_username@workstation_ip_address -p 1004 -i ~/.ssh/id_ed25519
+          ```
+      - For Windows:
+          ```bash
+          ssh your_username@workstation_ip_address -p 1004 -i C:\Users\your_username\.ssh\id_ed25519
+          ```
+     where `-i ~/.ssh/id_ed25519` and `-i C:\Users\your_username\.ssh\id_ed25519` specifies the path to your `private key` file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your `private key`.
+    - If everything is set up correctly, you should be able to log in to the workstation without entering a password. -->
+
+4. **Test the connection**
+   - Open a terminal on your <mark>local machine</mark>
+   - Run the following command to test the SSH connection
+     ```bash
+     ssh your_username@workstation_ip_address -p 1004
+     ```
+     If everything is set up correctly, you should be able to log in to the workstation without entering a password! This is also applied when you use VSCode to connect to workstations.
+> In summary,
+> - Local machines:
+>   - A `private key` file at `~/.ssh/id_ed25519` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
+>   - Adding the `private key` to the SSH agent
+> - Workstations: a `public key` at `~/.ssh/authorized_keys`
+
+> Notes:
+> - After entering `ssh your_username@workstation_ip_address -p 1004`, if you are asked to enter your password, it means that the <mark>SSH key authentication is NOT set up correctly</mark>. Leave a message in our KakaoTalk group for help!
+> - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
+> - If you have any issue with `REMOTE HOST IDENTIFICATION HAS CHANGED` and errors related to `.ssh/known_hosts`, please remove the corresponding line in the `~/.ssh/known_hosts` file on your <mark>local machine</mark> or simply delete `~/.ssh/known_hosts` if you are comfortable doing so.
+> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
+
+---
 ### Reservation 📅
 Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a> to reserve the GPU(s) you need. In summary,
 - <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
@@ -222,133 +350,5 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
       ./rclone copy local_folder nas:/remote_folder
       ```
       There are many other features of `rclone` that you might want to explore. Execute `./rclone --help` or visit <a href="https://rclone.org/commands" target="_blank">Rclone Commands</a> for more information.
-
----
-## SSH Keys 🔑
-SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, you will need two keys:
-- A `private key` is kept on your <mark>local machine</mark> at `~/.ssh/id_XXX` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_XXX` (Windows)
-- A `public key` is stored on <mark>workstations</mark> at `~/.ssh/authorized_keys`
-
-![regular](../figs/sshkeys/SSHkeydiagram.png)  
-
-Instead of entering your password every time you connect to a workstation, our PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
-
-To set up SSH keys, follow these steps:
-1. **Generate SSH keys**
-
-   > <mark>This step should be done ONLY ONE TIME!</mark>
-   - Open a terminal on your <mark>local machine</mark>
-   - Run the following command to generate a new SSH key pair
-     ```bash
-     ssh-keygen -t ed25519 -C "your_comment"
-     ```
-     where `your_comment` is any text you want, for example, `cilab`
-     - You will be asked to enter a file name to save the key pair. Press `Enter` to use the default file name `~/.ssh/id_ed25519` 
-       (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
-     - Next, you will be prompted to enter a passphrase to protect the keys. You can leave it empty by pressing `Enter` or type a passphrase for added security. I personally leave it empty but please choose what you feel comfortable with.
-     - After that, your SSH key pair will be generated in the `~/.ssh` directory 
-       (Linux/MacOS) or `C:\Users\your_username\.ssh` (Windows) on your <mark>local machine</mark>:
-        - `private key` is saved as `id_ed25519`
-        - `public key` is saved as `id_ed25519.pub`
-
-2. **Add the SSH key to the SSH agent**
-
-   > <mark>This step should be done ONLY ONE TIME!</mark>
-   <!-- - If you want to use the SSH key without entering the path to the key every time, you can add the SSH key to the SSH agent. -->
-   - Start the SSH agent
-
-      - For Linux and macOS, from the terminal in <mark>local machine</mark>,
-        ```bash
-        eval "$(ssh-agent -s)"
-        ```
-      - For Windows,
-        - Open `Services` by following one of these methods
-          - Option 1: Press `Windows + R` to open the Run dialog, type `service.msc` and press `Enter`
-          - Option 2: Press `Start Menu`, type `services` and press `Enter`
-        - Look for `OpenSSH Authentication Agent` in the list
-        - Double-click on it to open its properties
-        - Set the `Startup type` to `Automatic`
-        - Press `Apply`
-        - Press `Start` to start the service
-        - Press `OK` to close the properties window
-   - Add the SSH key to the agent, open a terminal on your <mark>local machine</mark> and run the following command:
-      - For Linux and macOS,
-        ```bash
-        ssh-add ~/.ssh/id_ed25519
-        ```
-      - For Windows,
-        ```bash
-        ssh-add C:\Users\your_username\.ssh\id_ed25519
-        ```
-   <!-- - Test the SSH connection
-     ```bash
-     ssh your_username@workstation_ip_address -p 1004
-     ```
-     As you can see, you do not need to specify password anymore! Similarly, you will not need to enter password when using VSCode to connect to workstations. -->
-
-3. **Copy the `public key` to the <mark>workstations</mark>**
-
-   > <mark>Do the following steps for ALL the workstations!</mark>
-   - Open the `public key` file `id_ed25519.pub` on your <mark>local machine</mark> using Notepad or any text editor
-   - Copy its content. For example, it should look like this:
-     ```bash
-     ssh-ed25519 AAAAC3Nza... your_comment
-     ```
-   - Open a terminal on your <mark>local machine</mark>
-   - Login to a <mark>workstation</mark> using SSH
-     ```bash
-     ssh your_username@workstation_ip_address -p 1004
-     ```
-    - Create the `~/.ssh` directory if it does not exist
-      ```bash
-      mkdir -p ~/.ssh
-      ```
-    - Paste the content into the `~/.ssh/authorized_keys` file on the workstation
-      ```bash
-      echo "ssh-ed25519 AAAAC3Nza... your_comment" >> ~/.ssh/authorized_keys
-      ```
-      replace `ssh-ed25519 AAAAC3Nza... your_comment` with the actual content of your `public key` file.
-    - Set the correct permissions for the `~/.ssh` directory and the `authorized_keys` file so that only you can read and write to them
-      ```bash
-      chmod 700 ~/.ssh
-      chmod 600 ~/.ssh/authorized_keys
-      ```
-    - Exit the workstation
-      ```bash
-      exit
-      ```
-<!-- 3. **Test the SSH key authentication**
-   - Open a terminal on your <mark>local machine</mark>
-   - Run the following command to test the SSH connection
-     - For Linux and macOS:
-          ```bash
-          ssh your_username@workstation_ip_address -p 1004 -i ~/.ssh/id_ed25519
-          ```
-      - For Windows:
-          ```bash
-          ssh your_username@workstation_ip_address -p 1004 -i C:\Users\your_username\.ssh\id_ed25519
-          ```
-     where `-i ~/.ssh/id_ed25519` and `-i C:\Users\your_username\.ssh\id_ed25519` specifies the path to your `private key` file. You can think of this as sending your password to the workstation. But here, the password is not sent in plain text, it is encrypted with your `private key`.
-    - If everything is set up correctly, you should be able to log in to the workstation without entering a password. -->
-
-4. **Test the connection**
-   - Open a terminal on your <mark>local machine</mark>
-   - Run the following command to test the SSH connection
-     ```bash
-     ssh your_username@workstation_ip_address -p 1004
-     ```
-     If everything is set up correctly, you should be able to log in to the workstation without entering a password! This is also applied when you use VSCode to connect to workstations.
-> In summary,
-> - Local machines:
->   - A `private key` file at `~/.ssh/id_ed25519` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows)
->   - Adding the `private key` to the SSH agent
-> - Workstations: a `public key` at `~/.ssh/authorized_keys`
-
-> Notes:
-> - After entering `ssh your_username@workstation_ip_address -p 1004`, if you are asked to enter your password, it means that the <mark>SSH key authentication is NOT set up correctly</mark>. Leave a message in our KakaoTalk group for help!
-> - <mark>NO NOT</mark> share your `private key` `~/.ssh/id_ed25519` or `C:\Users\your_username\.ssh\id_ed25519` with anyone. You can think of it as your password!
-> - If you have any issue with `REMOTE HOST IDENTIFICATION HAS CHANGED` and errors related to `.ssh/known_hosts`, please remove the corresponding line in the `~/.ssh/known_hosts` file on your <mark>local machine</mark> or simply delete `~/.ssh/known_hosts` if you are comfortable doing so.
-> - If you want to use the same SSH key on multiple workstations and multiple local machines, you can copy the `public key` to all the workstations using the <mark>step 2 above</mark> and `private key` to all your local machines.
----
 
 <!-- ## (Optional) Data Annotation With CVAT.ai ✏️ -->
