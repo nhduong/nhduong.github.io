@@ -12,6 +12,8 @@ TocOpen: true
 ---
 
 # Network Attached Storage (NAS) 📀
+> <mark>First, please ask the administrator for a username and a password!</mark>
+
 > What is NAS for?
 > - Storing/sharing materials for research, e.g., datasets, codes, etc.
 > - Being linked to workstations for remote development.
@@ -41,6 +43,8 @@ TocOpen: true
 
 ---
 # GPU Workstations
+
+> <mark>First, please ask the administrator for a username and a password!</mark>
 
 ## SSH Keys 🔑
 SSH keys are a pair of cryptographic keys used to authenticate a user to a remote server. Basically, you will need two keys:
@@ -173,18 +177,18 @@ To set up SSH keys, follow these steps:
 ### Reservation 📅
 Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a> to reserve the GPU(s) you need. In summary,
 - <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
-- <mark>Cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> anymore.  
+- Although your reservation will be automatically cancelled if you do not use the GPU(s), please <mark>cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> as soon as possible to free up the GPU(s) for other members.  
+- Currently, each student can reserve <mark>up to around 67 slots per month</mark>. If you need more GPU time, please <mark>ask other members for their slots</mark>!
 
 For more information, please ask questions in our KakaoTalk group.
 ### Connecting To Workstations 🖥️
 Let's start with the most common way to connect to a workstation, which is using SSH with a terminal.
-   - Ask the administrator for a username and a password
    - Open a terminal
    - Connect to the workstation with the following command
      ```bash
      ssh username@workstation_ip -p 1004
      ```
-   - Enter your password
+   - If you ssh key authentication is set up correctly, you should be able to connect to the workstation without entering a password. Otherwise, follow the above instructions to make ssh key again!
    - You are now connected to the workstation  
      ![regular](../figs/env/0.ssh_terminal.png)
 ### Environment Setup 🚧
@@ -204,7 +208,7 @@ For the most part, you will be working on GPU workstations with Python based pro
      ```bash
      conda create -n <your environment name here> python=3.9
      ```
-     Replace `<your environment name here>` with any name you want.
+     Replace `<your environment name here>` and `3.9` with any name and any version of Python that you need.
    - Activate the environment
      ```bash
      conda activate <your environment name here>
@@ -233,7 +237,7 @@ For the most part, you will be working on GPU workstations with Python based pro
 <!-- #### Using VSCode 🚀 -->
 VSCode is an All-in-One powerful editor that runs on your local machine. It can be used to connect to a remote workstation for develpment. It comes with a lot of useful features via extensions. This guide will show you how to set up and use VSCode to connect to a CILab workstation.
 - Download and install <a href="https://code.visualstudio.com/download" target="_blank">VSCode</a> on your <mark>local machine</mark> (NOT the workstation!)
-- Remember to make a reservation before using a workstation. And, the reservations <mark>MUST be canceled</mark> if you are not using the workstations anymore.
+- Remember to make a reservation before using a workstation.
 - SSH configuration:  
 *(skip this step if you have already done it before.)*
   + Run VS Code on your local machine.</li>
@@ -262,12 +266,12 @@ VSCode is an All-in-One powerful editor that runs on your local machine. It can 
   + Type `Remote-SSH: Connect to Host...` and press `Enter`  
   ![regular](../figs/vscode/3.connect.png)
   + Select the name you set in the previous step and press `Enter`
-  + Enter your password and press `Enter`
+  + If you ssh key authentication is set up correctly, you should be able to connect to the workstation without entering a password. Otherwise, follow the above instructions to make ssh key again!
   + Wait for the connection to be established
   + You should see the workstation name in the bottom left corner of the VS Code window. In the example below, the server name is `cilabws05`  
   ![regular](../figs/vscode/4.connected.png)
   + Let's look for available GPUs. Open a new terminal by selecting `Terminal -> New Terminal` from the top menu
-  + Type `nvidia-smi` and press `Enter`
+  + Type `cilab-gpu` and press `Enter`
   + In the example below, *GPU #0* is being used by someone else while *GPUs #1*, *#2*, and *#3* are free.  
   ![regular](../figs/vscode/5.nvidia-smi.png)
 
@@ -348,7 +352,11 @@ Secure File Transfer Protocol (SFTP) is required for transferring data between y
       ![regular](../figs/trans/5.rclone_lsd.png)
       + If you see a list of folders on the workstation/NAS, the connection is successful. You can now transfer data between your PCs, workstations and NAS using `rclone` with the following command:
       ```bash
-      ./rclone copy local_folder nas:/remote_folder
+      ./rclone copy -P --fast-list --drive-chunk-size=256M --multi-thread-streams=16 --transfers=4 --multi-thread-cutoff=256 local_folder nas:/remote_folder
+      ```
+      or simply
+      ```bash
+      ./rclone copy -P local_folder nas:/remote_folder
       ```
       There are many other features of `rclone` that you might want to explore. Execute `./rclone --help` or visit <a href="https://rclone.org/commands" target="_blank">Rclone Commands</a> for more information.
 
