@@ -175,12 +175,38 @@ To set up SSH keys, follow these steps:
 ## Basic Usage 🖥️
 ---
 ### Reservation 📅
-Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a> to reserve the GPU(s) you need. In summary,
-- <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
-- Although your reservation will be automatically cancelled if you do not use the GPU(s), please <mark>cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> as soon as possible to free up the GPU(s) for other members.  
-- Currently, each student can reserve <mark>up to around 67 slots per month</mark>. If you need more GPU time, please <mark>ask other members for their slots</mark>!
+> Notes:
+> - <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
+> - Although your reservation will be automatically cancelled if you do not use the GPU(s), please <mark>cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> as soon as possible to free up the GPU(s) for other members.  
+> - Currently, each student can reserve <mark>up to around 67 slots per month</mark>. If you need more GPU time, please <mark>ask other members for their slots</mark>!
 
-For more information, please ask questions in our KakaoTalk group.
+1. Ask any member for the permission to make a reservation. You will need to provide them your email address.
+2. Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a>
+3. You will be asigned via a keyword in the sheet. Find your keyword in the below table as shown in the figure below. In this example, the keywords `KGH`, `NHD`, `PSA`, etc. are assigned to the corresponding students.  
+![regular](../figs/req/request_1.png)
+4. Some information that you might need to know:
+    - `TOTAL`: <mark>Your</mark> slots in a month.
+    - `USED`: slots you <mark>used</mark>.
+    - `REMAIN`: slots you <mark>can still use</mark>.
+    - `# SLOTS`: total slots for the <mark>whole lab</mark> for the month.
+    - `# ALLOCATIONS`: total number of <mark>reservations</mark>.
+    - `REMAIN SLOTS`: <mark>available slots</mark>.
+5. Make sure you have remaining slots `REMAIN` $> 0$. If not,
+    - Request for additional slots by increasing <mark>your</mark> `TOTAL`. Just ensure that you do not exceed the maximum number of slots in `REMAIN SLOTS`.  
+    ![regular](../figs/req/request_2.png)
+    - If the `REMAIN SLOTS` is 0, you will need to ask other members for their slots (via KakaoTalk, etc.). If they are OK with that,
+      - <mark>Decrease their</mark> `TOTAL`.  
+      ![regular](../figs/req/request_4.png)
+      - <mark>Increase your</mark> `TOTAL` by the same amount.  
+      ![regular](../figs/req/request_6.png)
+6. Now you can make a reservation. Just copy and paste your keyword in the below table to the table above.
+> Note that,
+> - You cannot make a reservation for the days in the past.
+> - If you cannot make a reservation, check
+>   - If you have remaining slots `REMAIN` $> 0$.
+>   - Your email address is correct.
+
+Still have questions about reservation? Please ask questions in our KakaoTalk group.
 ### Connecting To Workstations 🖥️
 Let's start with the most common way to connect to a workstation, which is using SSH with a terminal.
    - Open a terminal
