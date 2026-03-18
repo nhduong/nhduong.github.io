@@ -53,7 +53,7 @@ SSH keys are a pair of cryptographic keys used to authenticate a user to a remot
 
 ![regular](../figs/sshkeys/SSHkeydiagram.png)  
 
-Instead of entering your password every time you connect to a workstation, our PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
+Instead of entering your password every time you connect to a workstation, your PC and workstations exchange encrypted messages via `private key` and `public key`. This way, you can log in without entering a password. This is more secure and convenient.
 
 To set up SSH keys, follow these steps:
 1. **Generate SSH keys**
@@ -191,20 +191,22 @@ To set up SSH keys, follow these steps:
     - `# SLOTS`: total slots for the <mark>whole lab</mark> for the month.
     - `# ALLOCATIONS`: total number of <mark>reservations</mark>.
     - `REMAIN SLOTS`: <mark>available slots</mark>.
-5. Make sure you have remaining slots `REMAIN` $> 0$. If not,
+5. Make sure you have remaining slots `REMAIN` > 0. If not,
     - Request for additional slots by increasing <mark>your</mark> `TOTAL`. Just ensure that you do not exceed the maximum number of slots in `REMAIN SLOTS`.  
     ![regular](../figs/req/request_2.png)
-    - If the `REMAIN SLOTS` is 0, you will need to ask other members for their slots (via KakaoTalk, etc.). If they are OK with that,
-      - <mark>Decrease their</mark> `TOTAL`.  
-      ![regular](../figs/req/request_4.png)
+    - If the `REMAIN SLOTS` is 0, you will need to ask other members for their slots (in person, via KakaoTalk, etc.). If they are OK with that,
+      - <mark>Decrease their</mark> `TOTAL`. In this example, `VHC` is giving 20 slots to `NHD`. So, we need to decrease `VHC`'s `TOTAL` by 20.  
+      ![regular](../figs/req/request_3.png)
       - <mark>Increase your</mark> `TOTAL` by the same amount.  
-      ![regular](../figs/req/request_6.png)
-6. Now you can make a reservation. Just copy and paste your keyword in the below table to the table above.
+      ![regular](../figs/req/request_4.png)
+6. Now you can make a reservation. Just copy and paste your keyword in the below table to the table above.  
+![regular](../figs/req/request_5.png)
+
 > Note that,
 > - You cannot make a reservation for the days in the past.
 > - If you cannot make a reservation, check
->   - If you have remaining slots `REMAIN` $> 0$.
->   - Your email address is correct.
+>   - If you have remaining slots `REMAIN` > 0.
+>   - Your email address is correct when you logged in to Google Sheets.
 
 Still have questions about reservation? Please ask questions in our KakaoTalk group.
 ### Connecting To Workstations 🖥️
