@@ -180,7 +180,7 @@ To set up SSH keys, follow these steps:
 > - Although your reservation will be automatically cancelled if you do not use the GPU(s), please <mark>cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> as soon as possible to free up the GPU(s) for other members.  
 > - Currently, each student can reserve <mark>up to around 67 slots per month</mark>. If you need more GPU time, please <mark>ask other members for their slots</mark>!
 
-1. Ask any member for the permission to make a reservation. You will need to provide them your email address.
+1. Ask any member for the permission to make a reservation. You will need to provide them your email address. (do this <mark>ONCE</mark> if you are a new member.)
 2. Head to the <a href="https://docs.google.com/spreadsheets/u/1/d/1NsKRx_1eLOUUYIa9rYNJWEGnNnKrfy3VcYRzI4kRusA" target="_blank">CILAB_Shared_GPUs_Sheet</a>
 3. You will be asigned via a keyword in the sheet. Find your keyword in the below table as shown in the figure below. In this example, the keywords `KGH`, `NHD`, `PSA`, etc. are assigned to the corresponding students.  
 ![regular](../figs/req/request_1.png)
