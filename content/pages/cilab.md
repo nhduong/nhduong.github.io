@@ -25,6 +25,8 @@ TocOpen: true
 - Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006</a>
 > You might see a <mark>unsecured connection</mark> warning from your web browser when you try to access the NAS web interface. It is OK🙄 to ignore the warning and proceed to the website.
 
+> ![regular](../figs/not_secure_warning.png)  
+
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
 
 > To install a SSL certificate on you PC,
