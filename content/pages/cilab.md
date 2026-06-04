@@ -23,11 +23,11 @@ TocOpen: true
 1. **Gaining Access To NAS**
 - Ask the administrator for a username and a password
 - Change the password after the first login with web interface at <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006</a>
-> You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
+> You might see a <mark>unsecured connection</mark> warning from your web browser when you try to access the NAS web interface. It is OK🙄 to ignore the warning and proceed to the website.
 
-> However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
+> However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
 
-> For the best security, it is recommended to install a SSL certificate on you PC.
+> To install a SSL certificate on you PC,
 > - Download <a href="../server.crt" target="_blank">the certificate</a>.
 > - Install it on your PC. For Windows and Chrome, follow <a href="https://support.globalsign.com/digital-certificates/installation/install-client-digital-certificate-windows-using-chrome" target="_blank">this instruction</a>. For other operating systems and browsers, please search for the instructions online.
 
