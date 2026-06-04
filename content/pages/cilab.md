@@ -26,6 +26,11 @@ TocOpen: true
 > You might experience a problem of unsecured connection. It is OK🙄 to ignore the warning and proceed to the website.
 
 > However, with an unsecured connection, your data, especially your username and password will be transmitted in plain text🤮. So, it is recommended to contact the administrator to install a SSL certificate on your PC, especially if you are using a public network and you share the same username and password with other services.
+
+> For the best security, it is recommended to install a SSL certificate on you PC.
+> - Download <a href="../server.crt" target="_blank">the certificate</a>.
+> - Install it on your PC. For Windows and Chrome, follow <a href="https://support.globalsign.com/digital-certificates/installation/install-client-digital-certificate-windows-using-chrome" target="_blank">this instruction</a>. For other operating systems and browsers, please search for the instructions online.
+
 1. **Connecting To NAS**
    - NAS Web Interface
      - Open a web browser and go to <a href="https://223.195.240.67:1006" target="_blank">https://223.195.240.67:1006</a>
