@@ -181,7 +181,7 @@ To set up SSH keys, follow these steps:
 
 ## Basic Usage 🖥️
 ---
-### Reservation 📅
+<!-- ### Reservation 📅
 > Notes:
 > - <mark>Only make a reservation</mark> when your <mark>code is ready</mark> to run as other members might need GPU(s) more urgently.
 > - Although your reservation will be automatically cancelled if you do not use the GPU(s), please <mark>cancel the reservation</mark> if you <mark>do not need GPU(s)</mark> as soon as possible to free up the GPU(s) for other members.  
@@ -215,7 +215,7 @@ To set up SSH keys, follow these steps:
 >   - If you have remaining slots `REMAIN` > 0.
 >   - Your email address is correct when you logged in to Google Sheets.
 
-Still have questions about reservation? Please ask questions in our KakaoTalk group.
+Still have questions about reservation? Please ask questions in our KakaoTalk group. -->
 ### Connecting To Workstations 🖥️
 Let's start with the most common way to connect to a workstation, which is using SSH with a terminal.
    - Open a terminal
@@ -319,6 +319,19 @@ Now everything is set up and you can start working on the workstation with VS Co
 >   - With LaTeX Workshop, VSCode can be used to write and compile LaTeX documents. The output PDF file can be viewed directly in VSCode.
 >   - To run code in background, you can use `nohup` command. For example, `nohup python train.py &`. For more information, visit <a href="https://en.wikipedia.org/wiki/Nohup" target="_blank">nohup</a>. Also, you can use <a href="https://en.wikipedia.org/wiki/GNU_Screen" target="_blank">screen</a> or <a href="https://en.wikipedia.org/wiki/Tmux" target="_blank">tmux</a> for more advanced features.
 <!-- #### With X2Go 🚂 -->
+
+### <mark>Scheduling Jobs ⏰</mark>
+> <mark>- By default, code runs on GPUs via Terminals or VSCode will be killed after 15 minutes automatically.  
+> <mark>- Job needs to be submitted on CILab GPU Scheduler.</mark>
+
+In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
+- I strongly recommend you to install certificates for a secure connection as you will send your username and SSH key to the server. Without this, other people might be able to see your username and SSH key. You need to do this only once.
+  + Download the <a href="../certificates.zip" target="_blank">certificates</a> for a secure connection
+  + Install <mark>ALL</mark> the certificates by following <a href="https://support.globalsign.com/digital-certificates/installation/install-client-digital-certificate-windows-using-chrome" target="_blank">this instruction</a>
+- Open web browser and go to `https://223.195.240.6X:1006` where X is the server number. <mark>It must be https (with SSSSSSSSSSSSSSS) instead of http!</mark>
+- If you see a warning message from the browser, it is because you have not installed the certificates! If you risk it, you can click on `Advanced` and then `Proceed to 223.195.240.6X (unsafe)` to continue. The below figure is the login page of the GPU scheduler.
+![regular](../figs/scheduler/1.login.png)
+
 
 ---
 ## Data Transfer 🚚
