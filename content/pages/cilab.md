@@ -338,6 +338,19 @@ In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
 ![regular](../figs/dashboard/2.png)
 - You will be redirected to the dashboard page. Here is the screenshot of the dashboard page.
 ![regular](../figs/dashboard/4.png)
+- There are three main sections in the dashboard page:
+  - `Job Scheduler` is for submitting and managing your jobs.
+  - `File Explorer` is for managing and visually inspecting your files on the workstation.
+  - `Terminal` is for running commands on the workstation.
+- We will use the `Job Scheduler` to submit and manage your jobs in the following sections.
+  - Click on the `Job Scheduler` tab and you will see the job scheduler page
+![regular](../figs/dashboard/5.png)
+  - `Command`: command to run your code, e.g., `python train.py`. <mark>Please do NOT include `CUDA_DEVICE_ORDER` and `CUDA_VISIBLE_DEVICES` in the command as the GPU scheduler will automatically set them for you based on the GPU(s) you select below.</mark>
+  - `Working Directory`: the directory where your code is located, e.g., `/home/your_username/your_project`
+  - `Conda Environment`: the conda environment you want to use, you can select an existing environment by clicking on the dropdown menu
+  - `Experiment Note`: any note you want to add for the job. This is optional
+  - `Notification Email`: the email address you want to receive notifications about your job when it is finished or if there is an error. This is optional
+  - `GPU / CPU`: select CPU or GPUs for your job. You can select multiple GPUs if you need. Please do not use 
 
 ---
 ## Data Transfer 🚚
