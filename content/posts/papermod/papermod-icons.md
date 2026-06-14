@@ -82,7 +82,6 @@ draft: true
 | `telegram`      | telegram.org                    |
 | `tiktok`        | tiktok.com                      |
 | `twitch`        | twitch.tv                       |
-| `twitter`       | twitter.com                     |
 | `unsplash`      | unsplash.com                    |
 | `x`             | x.com                           |
 | `xda`           | xda-developers.com              |
@@ -119,9 +118,4 @@ Usage:
 ```yml {linenos=true}
 params:
   ShowShareButtons: true
-```
-
-```yml {linenos=true}
-params:
-  ShareButtons: ["linkedin", "twitter"] # To customize which share buttons to be enabled on page
 ```

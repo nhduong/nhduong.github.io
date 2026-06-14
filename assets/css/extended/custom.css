@@ -1,8 +1,5 @@
 /* Custom styles added to demo */
 
-.twitter-tweet {
-    margin: auto;
-}
 
 iframe {
     border-radius: var(--radius) !important;

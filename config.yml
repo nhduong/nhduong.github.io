@@ -182,5 +182,5 @@ markup:
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
-    disableInlineCSS: true
+  # twitter:
+  #   disableInlineCSS: true
