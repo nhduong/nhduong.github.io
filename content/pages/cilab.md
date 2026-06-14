@@ -350,7 +350,7 @@ In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
   - `Conda Environment`: the conda environment you want to use, you can select an existing environment by clicking on the dropdown menu
   - `Experiment Note`: any note you want to add for the job. This is optional
   - `Notification Email`: the email address you want to receive notifications about your job when it is finished or if there is an error. This is optional
-  - `GPU / CPU`: select CPU or GPUs for your job. You can select multiple GPUs if you need. Please do not use 
+  - `GPU / CPU`: select CPU or GPUs for your job. You can select multiple GPUs if you need.
   - You can save all the above information as a template for future use by clicking on the `Save As...` on the top left corner. This way, you do not need to fill in the information every time you submit a job.
   - Now you can submit your job by clicking on the `Submit Task` button. You will see your job in the `Job Queue` section. The below figure shows an example of a job submission and the job is running successfully.
 ![regular](../figs/dashboard/7.png)
