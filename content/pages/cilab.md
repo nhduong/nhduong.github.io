@@ -330,21 +330,19 @@ In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
   + Install <mark>ALL</mark> the certificates by following <a href="https://support.globalsign.com/digital-certificates/installation/install-client-digital-certificate-windows-using-chrome" target="_blank">this instruction</a>
 - Open web browser and go to `https://223.195.240.6X:1006` where X is the server number. <mark>It must be https (with SSSSSSSSSSSSSSS) instead of http!</mark>
 - If you see a warning message from the browser, it is because you have not installed the certificates! If you risk it, you can click on `Advanced` and then `Proceed to 223.195.240.6X (unsafe)` to continue. The below figure is the login page of the GPU scheduler.
-> Please open the below images in a new tab to see the details clearly.  
-> Sorry about that 🥲
 
 ![regular](../figs/dashboard/1.png)
 - Enter your username and select your private SSH key file, usually located at `~/.ssh/id_ed25519` (Linux/MacOS) or `C:\Users\your_username\.ssh\id_ed25519` (Windows). Then click on the `Login` button.
 ![regular](../figs/dashboard/2.png)
 - You will be redirected to the dashboard page. Here is the screenshot of the dashboard page.
-![regular](../figs/dashboard/4.png)
+![regular](../figs/dashboard/3.png)
 - There are three main sections in the dashboard page:
   - `Job Scheduler` is for submitting and managing your jobs.
   - `File Explorer` is for managing and visually inspecting your files on the workstation.
   - `Terminal` is for running commands on the workstation.
 - We will use the `Job Scheduler` to submit and manage your jobs in the following sections.
   - Click on the `Job Scheduler` tab and you will see the job scheduler page
-![regular](../figs/dashboard/5.png)
+![regular](../figs/dashboard/4.png)
   - `Command`: command to run your code, e.g., `python train.py`. <mark>Please do NOT include `CUDA_DEVICE_ORDER` and `CUDA_VISIBLE_DEVICES` in the command as the GPU scheduler will automatically set them for you based on the GPU(s) you select below.</mark> Similarly, please do not use them in your code.
   - `Working Directory`: the directory where your code is located, e.g., `/home/your_username/your_project`
   - `Conda Environment`: the conda environment you want to use, you can select an existing environment by clicking on the dropdown menu
@@ -353,17 +351,17 @@ In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
   - `GPU / CPU`: select CPU or GPUs for your job. You can select multiple GPUs if you need.
   - You can save all the above information as a template for future use by clicking on the `Save As...` on the top left corner. This way, you do not need to fill in the information every time you submit a job.
   - Now you can submit your job by clicking on the `Submit Task` button. You will see your job in the `Job Queue` section. The below figure shows an example of a job submission and the job is running successfully.
-![regular](../figs/dashboard/7.png)
+![regular](../figs/dashboard/5.png)
   - The job will be managed automatically by the GPU scheduler. In case you select GPUs that are currently being used by other members, your job will be put in the `Waiting List` as below
-![regular](../figs/dashboard/11.png)
+![regular](../figs/dashboard/6.png)
   - Your job will start automatically when the GPU(s) you selected are available.
   - In this window, you can also `View Log` to inspect the process by clicking `View Output`
-![regular](../figs/dashboard/8.png)
+![regular](../figs/dashboard/7.png)
   - Then a log viewer will pop up. Here you can monitor GPUs, etc. and your job's output in real time
-![regular](../figs/dashboard/9.png)
+![regular](../figs/dashboard/8.png)
   - In this window, in addition to 'View Log', you can also `Kill` and `Delete` you jobs.
   - If you job is killed or finished, an email notification will be sent to you if you have provided an email address
-![regular](../figs/dashboard/15.png)
+![regular](../figs/dashboard/9.png)
   - To inspect what happened to your job, you can click `Activity Logs` on the top left corner
 
 - In addition to the `Job Scheduler`, you can also use the `File Explorer` and `Terminal`. I believe you can figure out how to use them by yourself and hopefully they will be useful for you. If you have any questions about the GPU scheduler, please ask questions in our KakaoTalk group.
