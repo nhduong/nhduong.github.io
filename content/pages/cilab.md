@@ -328,7 +328,7 @@ In this part, we will learn how to schedule jobs on CILab GPU Scheduler.
 - I strongly recommend you to install certificates for a secure connection as you will send your username and SSH key to the server. Without this, other people might be able to see your username and SSH key. You need to do this only once.
   + Download the <a href="../certificates.zip" target="_blank">certificates</a> for a secure connection
   + Install <mark>ALL</mark> the certificates by following <a href="https://support.globalsign.com/digital-certificates/installation/install-client-digital-certificate-windows-using-chrome" target="_blank">this instruction</a>
-- Open web browser and go to `https://223.195.240.6X:1006` where X is the server number. <mark>It must be https (with SSSSSSSSSSSSSSS) instead of http!</mark>
+- Open web browser and go to `https://223.195.240.6X:1006` where X is the server number.
 - If you see a warning message from the browser, it is because you have not installed the certificates! If you risk it, you can click on `Advanced` and then `Proceed to 223.195.240.6X (unsafe)` to continue. The below figure is the login page of the GPU scheduler.
 
 ![regular](../figs/dashboard/1.png)
